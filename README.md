@@ -1,10 +1,10 @@
 # ![](https://raw.github.com/aptible/straptible/master/lib/straptible/rails/templates/public.api/icon-60px.png) Aptible::Api
 
 [![Gem Version](https://badge.fury.io/rb/aptible-api.png)](https://rubygems.org/gems/aptible-api)
-[![Build Status](https://travis-ci.org/aptible/aptible-api.png?branch=master)](https://travis-ci.org/aptible/aptible-api)
+[![Build Status](https://travis-ci.org/aptible/aptible-api-ruby.png?branch=master)](https://travis-ci.org/aptible/aptible-api-ruby)
 [![Dependency Status](https://gemnasium.com/aptible/aptible-api.png)](https://gemnasium.com/aptible/aptible-api)
 
-TODO: Add description.
+Ruby client for [api.aptible.com](https://api.aptible.com).
 
 ## Installation
 
