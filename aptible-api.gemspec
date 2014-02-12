@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'gem_config'
   spec.add_dependency 'hyperresource'
   spec.add_dependency 'aptible-auth'
+  spec.add_dependency 'fridge'
 
   spec.add_development_dependency 'bundler', '~> 1.3'
   spec.add_development_dependency 'aptible-tasks', '>= 0.2.0'

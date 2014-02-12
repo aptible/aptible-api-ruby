@@ -1,4 +1,6 @@
 require 'hyperresource'
+require 'aptible/auth'
+require 'fridge'
 
 module Aptible
   module Api
