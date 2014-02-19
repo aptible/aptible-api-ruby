@@ -8,3 +8,7 @@ end
 
 # Require library up front
 require 'aptible/api'
+
+RSpec.configure do |config|
+  config.before { Aptible::Api.configuration.reset }
+end

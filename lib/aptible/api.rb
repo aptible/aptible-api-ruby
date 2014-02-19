@@ -8,7 +8,9 @@ module Aptible
     include GemConfig::Base
 
     with_configuration do
-      has :root_url, classes: [String], default: 'https://api.aptible.com'
+      has :root_url,
+          classes: [String],
+          default: ENV['APTIBLE_API_ROOT_URL'] || 'https://api.aptible.com'
     end
   end
 end
