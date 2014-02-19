@@ -46,9 +46,9 @@ client.href
 
 | Parameter | Description | Default |
 | --------- | ----------- | --------------- |
-| `root_url` | Root URL of the authorization server | `ENV['APTIBLE_API_ROOT_URL']` or [https://api.aptible.com](https://api.aptible.com) |
+| `root_url` | Root URL of the API server | `ENV['APTIBLE_API_ROOT_URL']` or [https://api.aptible.com](https://api.aptible.com) |
 
-To point the client at a different authorization server (e.g., during development), add the following to your application's initializers (or set the `APTIBLE_API_ROOT_URL` environment variable):
+To point the client at a different API server (e.g., during development), add the following to your application's initializers (or set the `APTIBLE_API_ROOT_URL` environment variable):
 
 ```ruby
 Aptible::Api.configure do |config|
