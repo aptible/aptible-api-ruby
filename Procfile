@@ -1,0 +1,1 @@
+console: bundle exec pry
