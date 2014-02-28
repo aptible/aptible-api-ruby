@@ -1,1 +1,1 @@
-console: bundle exec pry
+console: bundle exec pry -r aptible/api
