@@ -11,11 +11,10 @@ Ruby client for [api.aptible.com](https://api.aptible.com/). Aptible's API serve
 Add the following lines to your application's Gemfile.
 
     gem 'aptible-api'
-    gem 'hyperresource', github: 'fancyremarker/hyperresource', branch: 'aptible'
-
-The forked version of the HyperResource gem is necessary until [gamache/hyperresource#19](https://github.com/gamache/hyperresource/pull/19) is merged.
 
 And then run `bundle install`.
+
+*Note:* A forked version of the HyperResource gem (`hyperresource-aptible`) is necessary until [gamache/hyperresource#22](https://github.com/gamache/hyperresource/pull/22) and [gamache/hyperresource#23](https://github.com/gamache/hyperresource/pull/23) are merged.
 
 ## Usage
 
