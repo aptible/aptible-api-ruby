@@ -15,4 +15,29 @@ describe Aptible::Api::Resource do
       Aptible::Api::Disk.find(42)
     end
   end
+
+  describe '.all' do
+    let(:app) { double Aptible::Api::App }
+    let(:collection) { double Aptible::Api }
+
+    before do
+      collection.stub(:apps) { [app] }
+      Aptible::Api::App.any_instance.stub(:find_by_url) { collection }
+    end
+
+    it 'should be an array' do
+      expect(Aptible::Api::App.all).to be_a Array
+    end
+
+    it 'should return the root collection' do
+      expect(Aptible::Api::App.all).to eq [app]
+    end
+
+    it 'should pass options to the HyperResource initializer' do
+      klass = Aptible::Api::App
+      options = { token: 'token' }
+      expect(klass).to receive(:new).with(options).and_return klass.new
+      Aptible::Api::App.all(options)
+    end
+  end
 end

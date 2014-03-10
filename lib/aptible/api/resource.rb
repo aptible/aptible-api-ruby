@@ -2,10 +2,18 @@ require 'active_support/inflector'
 
 module Aptible
   class Api::Resource < Api
+    def self.basename
+      name.split('::').last.downcase.pluralize
+    end
+
     def self.collection_url
-      basename = name.split('::').last
       config = Aptible::Api.configuration
-      config.root_url.chomp('/') + "/#{basename.downcase.pluralize}"
+      config.root_url.chomp('/') + "/#{basename}"
+    end
+
+    def self.all(options = {})
+      resource = new(options).find_by_url(collection_url)
+      resource.send(basename).entries
     end
 
     def self.find(id)
