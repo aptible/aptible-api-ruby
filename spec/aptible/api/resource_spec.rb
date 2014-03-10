@@ -40,4 +40,13 @@ describe Aptible::Api::Resource do
       Aptible::Api::App.all(options)
     end
   end
+
+  describe '.create' do
+    it 'should create a new top-level resource' do
+      apps = double Aptible::Api
+      Aptible::Api.stub_chain(:new, :apps) { apps }
+      expect(apps).to receive(:create).with(foo: 'bar')
+      Aptible::Api::App.create(foo: 'bar')
+    end
+  end
 end

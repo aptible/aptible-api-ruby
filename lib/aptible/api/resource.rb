@@ -27,8 +27,22 @@ module Aptible
       nil
     end
 
+    def self.create(options)
+      token = options.delete(:token)
+      auth = Api.new(token: token)
+      auth.send(basename).create(options)
+    end
+
     # rubocop:disable PredicateName
     def self.has_many(relation)
+      define_has_many_getter(relation)
+      define_has_many_setter(relation)
+    end
+    # rubocop:enable PredicateName
+
+    private
+
+    def self.define_has_many_getter(relation)
       define_method relation do
         get unless loaded
         if (memoized = instance_variable_get("@#{relation}"))
@@ -38,7 +52,13 @@ module Aptible
         end
       end
     end
-    # rubocop:enable PredicateName
+
+    def self.define_has_many_setter(relation)
+      define_method "create_#{relation.to_s.singularize}" do |options = {}|
+        get unless loaded
+        links[relation].create(options)
+      end
+    end
   end
 end
 

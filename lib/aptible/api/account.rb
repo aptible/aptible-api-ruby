@@ -12,5 +12,10 @@ module Aptible
       # TODO: Implement /accounts/:id/operations
       []
     end
+
+    def organization
+      auth = Aptible::Auth::Resource.new(token: token, headers: headers)
+      auth.find_by_url(links['organization'].href)
+    end
   end
 end
