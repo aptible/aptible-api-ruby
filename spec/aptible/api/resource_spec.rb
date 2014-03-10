@@ -11,7 +11,7 @@ describe Aptible::Api::Resource do
   describe '.find' do
     it 'should call find_by_url' do
       url = 'https://api.aptible.com/disks/42'
-      expect(Aptible::Api::Disk).to receive(:find_by_url).with url
+      expect(Aptible::Api::Disk).to receive(:find_by_url).with url, {}
       Aptible::Api::Disk.find(42)
     end
   end

@@ -12,17 +12,17 @@ module Aptible
     end
 
     def self.all(options = {})
-      resource = new(options).find_by_url(collection_url)
+      resource = find_by_url(collection_url, options)
       resource.send(basename).entries
     end
 
-    def self.find(id)
-      find_by_url("#{collection_url}/#{id}")
+    def self.find(id, options = {})
+      find_by_url("#{collection_url}/#{id}", options)
     end
 
-    def self.find_by_url(url)
+    def self.find_by_url(url, options = {})
       # REVIEW: Should exception be raised if return type mismatch?
-      new.find_by_url(url)
+      new(options).find_by_url(url)
     rescue
       nil
     end
