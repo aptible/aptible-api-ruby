@@ -40,6 +40,17 @@ module Aptible
     end
     # rubocop:enable PredicateName
 
+    def self.belongs_to(relation)
+      define_method relation do
+        get unless loaded
+        if (memoized = instance_variable_get("@#{relation}"))
+          memoized
+        else
+          instance_variable_set("@#{relation}", links[relation].get)
+        end
+      end
+    end
+
     private
 
     def self.define_has_many_getter(relation)

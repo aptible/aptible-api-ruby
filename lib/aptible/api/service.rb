@@ -1,5 +1,6 @@
 module Aptible
   class Api::Service < Api::Resource
+    belongs_to :account
     has_many :vhosts
     has_many :operations
     has_many :permissions
