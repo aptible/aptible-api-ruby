@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'gem_config'
-  spec.add_dependency 'hyperresource-aptible'
+  spec.add_dependency 'hyperresource-aptible', '>= 0.9.0'
   spec.add_dependency 'aptible-auth'
   spec.add_dependency 'fridge'
 
