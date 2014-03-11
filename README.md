@@ -21,7 +21,7 @@ And then run `bundle install`.
 First, get a token:
 
 ```ruby
-token = Aptible::Auth::Token.new(email: 'user0@example.com', password: 'password')
+token = Aptible::Auth::Token.create(email: 'user0@example.com', password: 'password')
 ```
 
 From here, you can interact with the Authorization API however you wish:

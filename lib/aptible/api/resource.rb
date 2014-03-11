@@ -24,6 +24,7 @@ module Aptible
       # REVIEW: Should exception be raised if return type mismatch?
       new(options).find_by_url(url)
     rescue
+      # REVIEW: Should only 404 exceptions be nil?
       nil
     end
 
