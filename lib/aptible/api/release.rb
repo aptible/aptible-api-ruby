@@ -1,3 +1,4 @@
+# rubocop:disable ClassAndModuleChildren
 module Aptible
   class Api::Release < Api::Resource
     belongs_to :service

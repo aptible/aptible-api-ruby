@@ -1,3 +1,4 @@
+# rubocop:disable ClassAndModuleChildren
 module Aptible
   class Api::Operation < Api::Resource
     belongs_to :resource
