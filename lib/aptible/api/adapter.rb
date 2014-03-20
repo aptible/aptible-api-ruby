@@ -1,3 +1,4 @@
+# rubocop:disable ClassAndModuleChildren
 module Aptible
   class Api::Adapter < HyperResource::Adapter::HAL_JSON
     class << self

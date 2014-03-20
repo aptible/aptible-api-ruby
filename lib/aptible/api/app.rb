@@ -1,3 +1,4 @@
+# rubocop:disable ClassAndModuleChildren
 module Aptible
   class Api::App < Api::Resource
     belongs_to :account

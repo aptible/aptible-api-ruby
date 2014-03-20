@@ -6,11 +6,11 @@ require 'English'
 
 Gem::Specification.new do |spec|
   spec.name          = 'aptible-api'
-  spec.version       = '0.4.0'
+  spec.version       = '0.4.1'
   spec.authors       = ['Frank Macreery']
   spec.email         = ['frank@macreery.com']
-  spec.description   = %q{Ruby client for api.aptible.com}
-  spec.summary       = %q{Ruby client for api.aptible.com}
+  spec.description   = %q(Ruby client for api.aptible.com)
+  spec.summary       = %q(Ruby client for api.aptible.com)
   spec.homepage      = 'https://github.com/aptible/aptible-api'
   spec.license       = 'MIT'
 
