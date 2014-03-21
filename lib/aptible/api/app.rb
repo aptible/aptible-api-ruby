@@ -2,6 +2,8 @@
 module Aptible
   class Api::App < Api::Resource
     belongs_to :account
+    belongs_to :current_configuration
+    belongs_to :current_image
     has_many :configurations
     has_many :images
     has_many :operations
