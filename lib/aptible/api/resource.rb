@@ -47,7 +47,7 @@ module Aptible
         get unless loaded
         if (memoized = instance_variable_get("@#{relation}"))
           memoized
-        else
+        elsif links[relation]
           instance_variable_set("@#{relation}", links[relation].get)
         end
       end
