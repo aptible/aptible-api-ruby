@@ -7,6 +7,7 @@ module Aptible
       # HyperResource/Faraday choke on empty response bodies
       super
     rescue HyperResource::ResponseError
+      nil
     end
     alias_method :destroy, :delete
 
