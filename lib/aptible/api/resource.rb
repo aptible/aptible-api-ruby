@@ -3,6 +3,13 @@ require 'active_support/inflector'
 # rubocop:disable ClassAndModuleChildren
 module Aptible
   class Api::Resource < Api
+    def delete
+      # HyperResource/Faraday choke on empty response bodies
+      super
+    rescue HyperResource::ResponseError
+    end
+    alias_method :destroy, :delete
+
     def self.basename
       name.split('::').last.downcase.pluralize
     end
