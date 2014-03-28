@@ -22,6 +22,7 @@ module Aptible
 
     def self.all(options = {})
       resource = find_by_url(collection_url, options)
+      return [] unless resource
       resource.send(basename).entries
     end
 
@@ -32,9 +33,12 @@ module Aptible
     def self.find_by_url(url, options = {})
       # REVIEW: Should exception be raised if return type mismatch?
       new(options).find_by_url(url)
-    rescue
-      # REVIEW: Should only 404 exceptions be nil?
-      nil
+    rescue HyperResource::ClientError => e
+      if e.response.status == 404
+        return nil
+      else
+        raise e
+      end
     end
 
     def self.create(options)
