@@ -2,6 +2,7 @@
 module Aptible
   class Api::Account < Api::Resource
     has_many :apps
+    has_many :databases
     has_many :disks
     has_many :services
 

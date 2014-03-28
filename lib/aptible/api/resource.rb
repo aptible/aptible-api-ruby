@@ -89,9 +89,9 @@ end
 
 require 'aptible/api/account'
 require 'aptible/api/app'
-require 'aptible/api/attachment'
 require 'aptible/api/configuration'
 require 'aptible/api/container'
+require 'aptible/api/database'
 require 'aptible/api/disk'
 require 'aptible/api/image'
 require 'aptible/api/operation'
