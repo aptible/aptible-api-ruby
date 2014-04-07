@@ -65,7 +65,12 @@ module Aptible
       end
     end
 
-    private
+    # rubocop:disable PredicateName
+    def self.has_one(relation)
+      # Better than class << self + alias_method?
+      belongs_to(relation)
+    end
+    # rubocop:enable PredicateName
 
     def self.define_has_many_getter(relation)
       define_method relation do
