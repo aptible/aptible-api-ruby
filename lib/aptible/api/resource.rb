@@ -91,10 +91,10 @@ module Aptible
     end
 
     def update(params)
-      params = Hash[params.map { |key, value|
+      params_array = params.map do |key, value|
         value.is_a?(HyperResource) ? [key, value.href] : [key, value]
-      }]
-      super(params)
+      end
+      super(Hash[params_array])
     end
 
     # NOTE: The following does not update the object in-place
