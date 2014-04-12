@@ -89,6 +89,18 @@ module Aptible
         links[relation].create(options)
       end
     end
+
+    def update(params)
+      params = Hash[params.map { |key, value|
+        value.is_a?(HyperResource) ? [key, value.href] : [key, value]
+      }]
+      super(params)
+    end
+
+    # NOTE: The following does not update the object in-place
+    def reload
+      self.class.find_by_url(href, headers: headers)
+    end
   end
 end
 
