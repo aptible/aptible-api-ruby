@@ -1,6 +1,7 @@
-# rubocop:disable ClassAndModuleChildren
 module Aptible
-  class Api::Permission < Api::Resource
-    belongs_to :resource
+  module Api
+    class Permission < Resource
+      belongs_to :resource
+    end
   end
 end

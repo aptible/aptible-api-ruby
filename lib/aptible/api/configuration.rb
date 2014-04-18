@@ -1,6 +1,7 @@
-# rubocop:disable ClassAndModuleChildren
 module Aptible
-  class Api::Configuration < Api::Resource
-    belongs_to :resource
+  module Api
+    class Configuration < Resource
+      belongs_to :resource
+    end
   end
 end

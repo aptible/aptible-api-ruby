@@ -1,7 +1,8 @@
-# rubocop:disable ClassAndModuleChildren
 module Aptible
-  class Api::Release < Api::Resource
-    belongs_to :service
-    has_many :containers
+  module Api
+    class Release < Resource
+      belongs_to :service
+      has_many :containers
+    end
   end
 end
