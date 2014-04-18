@@ -4,15 +4,6 @@ require 'aptible/auth'
 describe Aptible::Api do
   subject { Aptible::Api::App.new }
 
-  describe '#bearer_token' do
-    it 'should accept an Aptible::Auth::Token' do
-      token = Aptible::Auth::Token.new
-      token.stub(:access_token) { 'aptible_auth_token' }
-      subject.stub(:token) { token }
-      expect(subject.bearer_token).to eq token.access_token
-    end
-  end
-
   it 'should have a configurable root_url' do
     config = described_class.configuration
     expect(config).to be_a GemConfig::Configuration
