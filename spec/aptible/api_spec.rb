@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'aptible/auth'
 
 describe Aptible::Api do
   subject { Aptible::Api::App.new }

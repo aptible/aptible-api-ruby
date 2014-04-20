@@ -16,7 +16,9 @@ module Aptible
       end
 
       def organization
-        auth = Aptible::Auth::Resource.new(token: token, headers: headers)
+        require 'aptible/auth'
+
+        auth = Aptible::Auth::Organization.new(token: token, headers: headers)
         auth.find_by_url(links['organization'].href)
       end
     end
