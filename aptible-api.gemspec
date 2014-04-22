@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(/^spec\//)
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'aptible-resource'
+  spec.add_dependency 'aptible-resource', '>= 0.2.1'
   spec.add_dependency 'gem_config'
 
   spec.add_development_dependency 'bundler', '~> 1.3'

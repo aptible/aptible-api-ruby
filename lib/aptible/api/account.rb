@@ -6,6 +6,18 @@ module Aptible
       has_many :disks
       has_many :services
 
+      field :id
+      field :type
+      field :name
+      field :handle
+      field :number
+      field :type
+      field :activated, type: Aptible::Resource::Boolean
+      field :syslog_host
+      field :syslog_port
+      field :created_at, type: Time
+      field :updated_at, type: Time
+
       def production?
         type == 'production'
       end

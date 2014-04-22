@@ -9,6 +9,12 @@ module Aptible
       has_many :operations
       has_many :permissions
       has_many :services
+
+      field :id
+      field :handle
+      field :git_repo
+      field :created_at, type: Time
+      field :updated_at, type: Time
     end
   end
 end
