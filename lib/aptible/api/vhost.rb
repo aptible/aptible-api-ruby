@@ -21,6 +21,10 @@ module Aptible
       field :created_at, type: Time
       field :updated_at, type: Time
 
+      def account
+        service.account
+      end
+
       def provisioned?
         provisioned
       end
