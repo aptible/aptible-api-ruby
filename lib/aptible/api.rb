@@ -1,3 +1,4 @@
+require 'aptible/auth'
 require 'gem_config'
 
 module Aptible

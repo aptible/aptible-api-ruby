@@ -1,3 +1,5 @@
+require 'aptible/auth'
+
 module Aptible
   module Api
     class Account < Resource
@@ -28,8 +30,6 @@ module Aptible
       end
 
       def organization
-        require 'aptible/auth'
-
         auth = Aptible::Auth::Organization.new(token: token, headers: headers)
         auth.find_by_url(links['organization'].href)
       end
