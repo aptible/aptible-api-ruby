@@ -1,3 +1,5 @@
+require 'aptible/auth'
+
 module Aptible
   module Api
     class Operation < Resource
@@ -16,8 +18,6 @@ module Aptible
       field :updated_at, type: Time
 
       def user
-        require 'aptible/auth'
-
         auth = Aptible::Auth::User.new(token: token, headers: headers)
         auth.find_by_url(links['user'].href)
       end
