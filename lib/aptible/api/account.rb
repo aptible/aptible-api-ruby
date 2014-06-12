@@ -25,9 +25,11 @@ module Aptible
         type == 'production'
       end
 
+      # rubocop:disable PredicateName
       def has_subscription?
         !stripe_subscription_id.nil?
       end
+      # rubocop:enable PredicateName
 
       def operations
         # TODO: Implement /accounts/:id/operations
@@ -40,7 +42,7 @@ module Aptible
       end
 
       def self.generate_handle(organization_name, plan_id)
-        rand = ('a'..'z').to_a.shuffle[0,8].join
+        rand = ('a'..'z').to_a.shuffle[0, 8].join
         "#{organization_name.parameterize}-#{plan_id}-#{rand}"
       end
     end
