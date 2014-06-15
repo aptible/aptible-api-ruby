@@ -1,4 +1,5 @@
 require 'aptible/auth'
+require 'stripe'
 
 module Aptible
   module Api
@@ -20,6 +21,13 @@ module Aptible
       field :created_at, type: Time
       field :updated_at, type: Time
       field :stripe_subscription_id
+
+      def subscription
+        return if stripe_subscription_id.nil?
+        @subscription ||= organization.stripe_customer
+                                      .subscriptions
+                                      .retrieve(stripe_subscription_id)
+      end
 
       def production?
         type == 'production'
