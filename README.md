@@ -14,8 +14,6 @@ Add the following lines to your application's Gemfile.
 
 And then run `bundle install`.
 
-*Note:* A forked version of the HyperResource gem (`hyperresource-aptible`) is necessary until [gamache/hyperresource#22](https://github.com/gamache/hyperresource/pull/22) and [gamache/hyperresource#23](https://github.com/gamache/hyperresource/pull/23) are merged.
-
 ## Usage
 
 First, get a token:
@@ -24,7 +22,7 @@ First, get a token:
 token = Aptible::Auth::Token.create(email: 'user0@example.com', password: 'password')
 ```
 
-From here, you can interact with the Authorization API however you wish:
+From here, you can interact with the API however you wish:
 
 ```ruby
 api = Aptible::Api.new(token: token)

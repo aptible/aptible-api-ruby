@@ -10,9 +10,9 @@ Gem::Specification.new do |spec|
   spec.version       = Aptible::Api::VERSION
   spec.authors       = ['Frank Macreery']
   spec.email         = ['frank@macreery.com']
-  spec.description   = %q(Ruby client for api.aptible.com)
-  spec.summary       = %q(Ruby client for api.aptible.com)
-  spec.homepage      = 'https://github.com/aptible/aptible-api'
+  spec.description   = 'Ruby client for api.aptible.com'
+  spec.summary       = 'Ruby client for api.aptible.com'
+  spec.homepage      = 'https://github.com/aptible/aptible-api-ruby'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($RS)
