@@ -21,6 +21,14 @@ module Aptible
         auth = Aptible::Auth::User.new(token: token, headers: headers)
         auth.find_by_url(links['user'].href)
       end
+
+      def succeeded?
+        status == 'succeeded'
+      end
+
+      def failed?
+        status == 'failed'
+      end
     end
   end
 end
