@@ -15,6 +15,11 @@ module Aptible
       field :provisioned, type: Aptible::Resource::Boolean
       field :created_at, type: Time
       field :updated_at, type: Time
+
+      def failed?
+        # TODO: Add failed status at API level
+        operations.select { |o| o.type == 'provision' }.all?(&:failed?)
+      end
     end
   end
 end
