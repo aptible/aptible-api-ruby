@@ -15,6 +15,7 @@ module Aptible
       field :git_repo
       field :created_at, type: Time
       field :updated_at, type: Time
+      field :status
     end
   end
 end
