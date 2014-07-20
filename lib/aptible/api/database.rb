@@ -15,6 +15,7 @@ module Aptible
       field :provisioned, type: Aptible::Resource::Boolean
       field :created_at, type: Time
       field :updated_at, type: Time
+      field :status
 
       def failed?
         # TODO: Add failed status at API level

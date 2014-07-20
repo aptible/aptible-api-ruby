@@ -20,6 +20,7 @@ module Aptible
       field :docker_name
       field :created_at, type: Time
       field :updated_at, type: Time
+      field :status
 
       def account
         service.account
