@@ -10,6 +10,8 @@ module Aptible
       field :status
       field :git_ref
       field :docker_ref
+      field :certificate
+      field :private_key
       field :env
       field :container_count
       field :disk_size
