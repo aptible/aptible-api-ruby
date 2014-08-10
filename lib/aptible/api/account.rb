@@ -20,25 +20,10 @@ module Aptible
       field :syslog_port
       field :created_at, type: Time
       field :updated_at, type: Time
-      field :stripe_subscription_id
-      field :stripe_subscription_status
-
-      def subscription
-        return if stripe_subscription_id.nil?
-        @subscription ||= organization.stripe_customer
-                                      .subscriptions
-                                      .retrieve(stripe_subscription_id)
-      end
 
       def production?
         type == 'production'
       end
-
-      # rubocop:disable PredicateName
-      def has_subscription?
-        !stripe_subscription_id.nil?
-      end
-      # rubocop:enable PredicateName
 
       def operations
         # TODO: Implement /accounts/:id/operations
