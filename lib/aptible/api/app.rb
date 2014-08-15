@@ -7,7 +7,6 @@ module Aptible
       has_many :configurations
       has_many :images
       has_many :operations
-      has_many :permissions
       has_many :services
 
       field :id

@@ -7,7 +7,6 @@ module Aptible
       belongs_to :current_release
       has_many :vhosts
       has_many :operations
-      has_many :permissions
       has_many :releases
 
       field :id

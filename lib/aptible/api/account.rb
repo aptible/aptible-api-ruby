@@ -8,6 +8,7 @@ module Aptible
       has_many :databases
       has_many :disks
       has_many :services
+      has_many :permissions
 
       field :id
       field :type

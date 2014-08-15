@@ -1,7 +1,7 @@
 module Aptible
   module Api
     class Permission < Resource
-      belongs_to :resource
+      belongs_to :account
 
       field :id
       field :scope
