@@ -22,8 +22,6 @@ module Aptible
       def user
         auth = Aptible::Auth::User.new(token: token, headers: headers)
         auth.find_by_url(links['user'].href)
-      rescue
-        nil
       end
 
       def succeeded?
