@@ -5,7 +5,6 @@ module Aptible
       has_one :disk
       has_one :service
       has_many :operations
-      has_many :permissions
 
       field :id
       field :handle
