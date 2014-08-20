@@ -16,12 +16,16 @@ module Aptible
       field :container_count
       field :disk_size
       field :command
+      field :user_name
+      field :user_email
       field :created_at, type: Time
       field :updated_at, type: Time
 
       def user
         auth = Aptible::Auth::User.new(token: token, headers: headers)
         auth.find_by_url(links['user'].href)
+      rescue
+        nil
       end
 
       def succeeded?
