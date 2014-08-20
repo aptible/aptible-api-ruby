@@ -16,6 +16,8 @@ module Aptible
       field :container_count
       field :disk_size
       field :command
+      field :user_name
+      field :user_email
       field :created_at, type: Time
       field :updated_at, type: Time
 
