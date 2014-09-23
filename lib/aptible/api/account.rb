@@ -21,12 +21,12 @@ module Aptible
       field :syslog_port
       field :created_at, type: Time
       field :updated_at, type: Time
-      field :bf_subscription_id
+      field :billforward_subscription_id
 
       def billforward_subscription
-        return nil if bf_subscription_id.nil?
-        @bf_subscription ||=
-        Aptible::BillForward::Subscription.find(bf_subscription_id)
+        return nil if billforward_subscription_id.nil?
+        @billforward_subscription ||=
+        Aptible::BillForward::Subscription.find(billforward_subscription_id)
       end
 
       def production?
