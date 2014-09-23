@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'aptible-resource', '>= 0.2.1'
   spec.add_dependency 'aptible-auth', '>= 0.5.0'
+  spec.add_dependency 'aptible-billforward'
   spec.add_dependency 'stripe', '>= 1.13.0'
   spec.add_dependency 'gem_config'
 
