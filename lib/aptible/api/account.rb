@@ -21,6 +21,13 @@ module Aptible
       field :syslog_port
       field :created_at, type: Time
       field :updated_at, type: Time
+      field :billforward_subscription_id
+
+      def billforward_subscription
+        return nil if billforward_subscription_id.nil?
+        @billforward_subscription ||=
+        Aptible::BillForward::Subscription.find(billforward_subscription_id)
+      end
 
       def production?
         type == 'production'
