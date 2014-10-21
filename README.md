@@ -62,3 +62,5 @@ end
 MIT License, see [LICENSE](LICENSE.md) for details.
 
 Copyright (c) 2013 [Aptible](https://www.aptible.com), Frank Macreery, and contributors.
+
+[<img src="https://s.gravatar.com/avatar/9b58236204e844e3181e43e05ddb0809?s=60" style="border-radius: 50%;" alt="@sandersonet" />](https://github.com/sandersonet)
