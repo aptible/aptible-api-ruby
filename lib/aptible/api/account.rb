@@ -38,6 +38,11 @@ module Aptible
         []
       end
 
+      def dumptruck_port
+        # TODO: Fetch from API
+        45022
+      end
+
       def organization
         auth = Aptible::Auth::Organization.new(token: token, headers: headers)
         auth.find_by_url(links['organization'].href)
