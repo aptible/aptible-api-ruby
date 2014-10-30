@@ -9,6 +9,7 @@ module Aptible
       has_many :disks
       has_many :services
       has_many :permissions
+      has_many :log_drains
 
       field :id
       field :type
@@ -22,6 +23,8 @@ module Aptible
       field :created_at, type: Time
       field :updated_at, type: Time
       field :billforward_subscription_id
+      field :gentlemanjerry_endpoint
+      field :gentlemanjerry_certificate
 
       def billforward_subscription
         return nil if billforward_subscription_id.nil?
