@@ -11,6 +11,7 @@ module Aptible
       field :created_at, type: Time
       field :updated_at, type: Time
       field :billforward_usage_session_id
+      field :layer
     end
   end
 end
