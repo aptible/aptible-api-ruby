@@ -4,6 +4,7 @@ module Aptible
       belongs_to :account
       has_one :disk
       has_one :service
+      has_one :last_operation
       has_many :operations
 
       field :id
