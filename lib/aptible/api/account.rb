@@ -9,7 +9,7 @@ module Aptible
       has_many :disks
       has_many :services
       has_many :permissions
-      has_many :log_drains
+      embeds_many :log_drains
 
       field :id
       field :type
@@ -48,8 +48,9 @@ module Aptible
       end
 
       def organization
+        return @organization if @organization
         auth = Aptible::Auth::Organization.new(token: token, headers: headers)
-        auth.find_by_url(links['organization'].href)
+        @organization = auth.find_by_url(links['organization'].href)
       end
 
       def self.generate_handle(organization_name, plan_id)
