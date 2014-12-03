@@ -7,7 +7,7 @@ module Aptible
       has_many :configurations
       has_many :images
       has_many :operations
-      has_many :services
+      embeds_many :services
 
       field :id
       field :handle
