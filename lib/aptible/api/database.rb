@@ -3,7 +3,7 @@ module Aptible
     class Database < Resource
       belongs_to :account
       embeds_one :last_operation
-      has_one :disk
+      embeds_one :disk
       has_one :service
       has_many :operations
 
