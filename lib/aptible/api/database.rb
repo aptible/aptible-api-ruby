@@ -2,9 +2,9 @@ module Aptible
   module Api
     class Database < Resource
       belongs_to :account
+      embeds_one :last_operation
       has_one :disk
       has_one :service
-      has_one :last_operation
       has_many :operations
 
       field :id

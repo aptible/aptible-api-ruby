@@ -4,10 +4,10 @@ module Aptible
       belongs_to :account
       belongs_to :current_configuration
       belongs_to :current_image
+      embeds_one :last_operation
       has_many :configurations
       has_many :images
       has_many :operations
-      has_one :last_operation
       embeds_many :services
 
       field :id
