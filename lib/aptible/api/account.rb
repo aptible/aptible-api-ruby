@@ -47,10 +47,14 @@ module Aptible
         45022
       end
 
+      def organization_url
+        links['organization'].href
+      end
+
       def organization
         return @organization if @organization
         auth = Aptible::Auth::Organization.new(token: token, headers: headers)
-        @organization = auth.find_by_url(links['organization'].href)
+        @organization = auth.find_by_url(organization_url)
       end
 
       def self.generate_handle(organization_name, plan_id)
