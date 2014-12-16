@@ -9,7 +9,6 @@ module Aptible
       field :certificate
       field :private_key
       field :type
-      field :provisioned, type: Aptible::Resource::Boolean
       field :elastic_load_balancer_name
       field :external_host
       field :external_http_port
@@ -28,7 +27,7 @@ module Aptible
       end
 
       def provisioned?
-        provisioned
+        status == 'provisioned'
       end
     end
   end
