@@ -12,6 +12,7 @@ module Aptible
       field :updated_at, type: Time
       field :billforward_usage_session_id
       field :layer
+      field :aws_instance_id
     end
   end
 end
