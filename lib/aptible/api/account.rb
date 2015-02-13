@@ -26,6 +26,7 @@ module Aptible
       field :gentlemanjerry_endpoint
       field :gentlemanjerry_certificate
       field :gentlemanjerry_docker_name
+      field :gentlemanjerry_instance_id
 
       def billforward_subscription
         return nil if billforward_subscription_id.nil?
