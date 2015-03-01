@@ -20,7 +20,8 @@ module Aptible
       field :created_at, type: Time
       field :updated_at, type: Time
       field :status
-      field :default
+      field :default, type: Aptible::Resource::Boolean
+      field :internal, type: Aptible::Resource::Boolean
 
       def account
         service.account
