@@ -16,6 +16,7 @@ module Aptible
       field :attached, type: Aptible::Resource::Boolean
       field :created_at, type: Time
       field :updated_at, type: Time
+      field :ec2_instance_id
     end
   end
 end
