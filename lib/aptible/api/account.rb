@@ -59,7 +59,7 @@ module Aptible
       end
 
       def self.generate_handle(organization_name, plan_id)
-        rand = ('a'..'z').to_a.shuffle[0, 8].join
+        rand = ('a'..'z').to_a.sample(8).join
         "#{organization_name.parameterize}-#{plan_id}-#{rand}"
       end
     end
