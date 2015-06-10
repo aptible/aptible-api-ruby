@@ -15,6 +15,7 @@ module Aptible
       field :created_at, type: Time
       field :updated_at, type: Time
       field :status
+      field :docker_repo
 
       def failed?
         # TODO: Add failed status at API level
