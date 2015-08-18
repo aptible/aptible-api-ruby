@@ -6,7 +6,7 @@ module Aptible
       has_many :vhosts
 
       field :id
-      field :body
+      field :certificate_body
       field :private_key
       field :common_name
       field :created_at, type: Time
