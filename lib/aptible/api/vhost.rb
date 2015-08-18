@@ -2,11 +2,12 @@ module Aptible
   module Api
     class Vhost < Resource
       belongs_to :service
+      belongs_to :certificate
       has_many :operations
 
       field :id
       field :virtual_domain
-      field :certificate
+      field :certificate_body
       field :private_key
       field :type
       field :elastic_load_balancer_name
