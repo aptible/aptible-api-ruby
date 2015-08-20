@@ -25,8 +25,7 @@ token = Aptible::Auth::Token.create(email: 'user0@example.com', password: 'passw
 From here, you can interact with the API however you wish:
 
 ```ruby
-api = Aptible::Api.new(token: token)
-account = api.accounts.first
+account = Aptible::Api::Account.new(token: token)
 account.apps.count
 # => 4
 account.apps.first.handle
