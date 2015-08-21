@@ -25,9 +25,11 @@ token = Aptible::Auth::Token.create(email: 'user0@example.com', password: 'passw
 From here, you can interact with the API however you wish:
 
 ```ruby
-account = Aptible::Api::Account.new(token: token)
-account.apps.count
-# => 4
+root = Aptible::Api::Account.new(token: token)
+# the root api has access to the different accounts in your aptible dashboard
+account = root.accounts.first
+account.handle
+# => 'aptible'
 account.apps.first.handle
 # => "foodle"
 newapp = account.create_app(handle: 'bardle')
