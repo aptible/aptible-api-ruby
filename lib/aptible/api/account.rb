@@ -5,6 +5,7 @@ module Aptible
   module Api
     class Account < Resource
       has_many :apps
+      has_many :certificates
       has_many :databases
       has_many :disks
       has_many :services
