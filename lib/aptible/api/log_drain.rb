@@ -14,6 +14,10 @@ module Aptible
       field :created_at, type: Time
       field :updated_at, type: Time
       field :status
+      field :gentlemanjerry_endpoint
+      field :gentlemanjerry_certificate
+      field :gentlemanjerry_docker_name
+      field :gentlemanjerry_instance_id
     end
   end
 end
