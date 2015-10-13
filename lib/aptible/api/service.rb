@@ -16,6 +16,7 @@ module Aptible
       field :process_type
       field :command
       field :container_count
+      field :container_memory_limit_mb
       field :created_at, type: Time
       field :updated_at, type: Time
     end
