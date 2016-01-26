@@ -6,6 +6,7 @@ module Aptible
       embeds_one :disk
       has_one :service
       has_many :operations
+      has_many :backups
 
       field :id
       field :handle
