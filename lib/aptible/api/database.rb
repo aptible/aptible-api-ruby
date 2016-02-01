@@ -9,6 +9,7 @@ module Aptible
 
       field :id
       field :handle
+      field :docker_hostname
       field :type
       field :passphrase
       field :connection_url
