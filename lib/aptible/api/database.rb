@@ -5,8 +5,10 @@ module Aptible
       embeds_one :last_operation
       embeds_one :disk
       has_one :service
+      has_one :initialize_from
       has_many :operations
       has_many :backups
+      has_many :dependents
 
       field :id
       field :handle
