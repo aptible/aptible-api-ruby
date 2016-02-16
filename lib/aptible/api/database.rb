@@ -2,6 +2,7 @@ module Aptible
   module Api
     class Database < Resource
       belongs_to :account
+      belongs_to :current_configuration
       embeds_one :last_operation
       embeds_one :disk
       has_one :service
@@ -9,6 +10,7 @@ module Aptible
       has_many :operations
       has_many :backups
       has_many :dependents
+      has_many :configurations
 
       field :id
       field :handle
