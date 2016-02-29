@@ -13,6 +13,7 @@ module Aptible
       field :certificate
       field :private_key
       field :env
+      field :container_size
       field :container_count
       field :disk_size
       field :command
