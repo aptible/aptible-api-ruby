@@ -8,6 +8,7 @@ module Aptible
       field :port
       field :status
       field :docker_name
+      field :memory_limit
       field :created_at, type: Time
       field :updated_at, type: Time
       field :billforward_usage_session_id
