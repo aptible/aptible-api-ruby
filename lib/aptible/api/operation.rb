@@ -3,6 +3,7 @@ require 'aptible/auth'
 module Aptible
   module Api
     class Operation < Resource
+      belongs_to :account
       belongs_to :resource
 
       field :id
