@@ -7,8 +7,6 @@ module Aptible
 
       field :id
       field :virtual_domain
-      field :certificate_body
-      field :private_key
       field :type
       field :elastic_load_balancer_name
       field :external_host
