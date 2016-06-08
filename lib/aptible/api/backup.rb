@@ -5,6 +5,9 @@ module Aptible
       belongs_to :database
       has_many :operations
 
+      has_one :copied_from
+      has_many :copies
+
       field :id
       field :aws_snapshot_id
       field :aws_region
