@@ -2,6 +2,7 @@ module Aptible
   module Api
     class Container < Resource
       belongs_to :release
+      belongs_to :vhost
 
       field :id
       field :host
