@@ -21,6 +21,7 @@ module Aptible
       field :status
       field :default, type: Aptible::Resource::Boolean
       field :internal, type: Aptible::Resource::Boolean
+      field :acme_domain
 
       def account
         service.account
