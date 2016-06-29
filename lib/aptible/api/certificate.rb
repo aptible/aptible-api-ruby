@@ -11,6 +11,7 @@ module Aptible
       field :common_name
       field :created_at, type: Time
       field :updated_at, type: Time
+      field :acme, type: Aptible::Resource::Boolean
     end
   end
 end
