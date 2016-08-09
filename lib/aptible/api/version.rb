@@ -1,5 +1,5 @@
 module Aptible
   module Api
-    VERSION = '0.9.8'.freeze
+    VERSION = '0.9.9'.freeze
   end
 end
