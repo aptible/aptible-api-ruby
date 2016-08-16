@@ -30,12 +30,6 @@ module Aptible
       field :gentlemanjerry_docker_name
       field :gentlemanjerry_instance_id
 
-      def billforward_subscription
-        return nil if billforward_subscription_id.nil?
-        @billforward_subscription ||=
-        Aptible::BillForward::Subscription.find(billforward_subscription_id)
-      end
-
       def production?
         type == 'production'
       end
