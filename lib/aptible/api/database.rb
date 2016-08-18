@@ -2,6 +2,7 @@ module Aptible
   module Api
     class Database < Resource
       belongs_to :account
+      belongs_to :database_image
       belongs_to :current_configuration
       embeds_one :last_operation
       embeds_one :disk
