@@ -8,6 +8,7 @@ module Aptible
       field :git_ref
       field :docker_repo
       field :docker_ref
+      field :dualstack_hint
       field :created_at, type: Time
       field :updated_at, type: Time
     end
