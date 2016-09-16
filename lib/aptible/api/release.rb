@@ -2,6 +2,7 @@ module Aptible
   module Api
     class Release < Resource
       belongs_to :service
+      embeds_one :app_release
       has_many :containers
 
       field :id
