@@ -24,7 +24,6 @@ module Aptible
       field :syslog_port
       field :created_at, type: Time
       field :updated_at, type: Time
-      field :billforward_subscription_id
       field :gentlemanjerry_endpoint
       field :gentlemanjerry_certificate
       field :gentlemanjerry_docker_name
