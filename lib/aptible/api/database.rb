@@ -12,11 +12,13 @@ module Aptible
       has_many :backups
       has_many :dependents
       has_many :configurations
+      embeds_many :database_credentials
 
       field :id
       field :handle
       field :type
       field :passphrase
+      field :port_mapping
       field :connection_url
       field :created_at, type: Time
       field :updated_at, type: Time
