@@ -3,6 +3,7 @@ module Aptible
     class Container < Resource
       belongs_to :release
       belongs_to :vhost
+      belongs_to :log_drain
 
       field :id
       field :host
