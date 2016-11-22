@@ -3,6 +3,7 @@ module Aptible
     class LogDrain < Resource
       belongs_to :account
       has_many :operations
+      has_many :containers
 
       field :id
       field :handle
