@@ -12,6 +12,7 @@ module Aptible
       field :drain_port
       field :drain_username
       field :drain_password
+      field :drain_databases
       field :created_at, type: Time
       field :updated_at, type: Time
       field :status
