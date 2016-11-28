@@ -6,6 +6,8 @@ module Aptible
       belongs_to :account
       belongs_to :resource
 
+      has_many :ssh_portal_connections
+
       field :id
       field :type
       field :status
