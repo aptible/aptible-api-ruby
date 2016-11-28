@@ -3,6 +3,7 @@ module Aptible
     class LogDrain < Resource
       belongs_to :account
       has_many :operations
+      has_many :containers
 
       field :id
       field :handle
@@ -11,6 +12,8 @@ module Aptible
       field :drain_port
       field :drain_username
       field :drain_password
+      field :drain_databases
+      field :drain_apps
       field :created_at, type: Time
       field :updated_at, type: Time
       field :status
