@@ -9,6 +9,8 @@ module Aptible
       field :id
       field :type
       field :status
+      field :cancelled
+      field :aborted
       field :git_ref
       field :docker_ref
       field :certificate
