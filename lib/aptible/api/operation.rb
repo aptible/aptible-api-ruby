@@ -42,6 +42,62 @@ module Aptible
       def failed?
         status == 'failed'
       end
+
+      def with_ssh_cmd(private_key_file)
+        # We expect that the public key will be found next to the private key,
+        # which is also what SSH itself expects. If that's not the case, then
+        # we'll just fail. The Aptible CLI will always ensure credentials are
+        # set up properly (other consumers are of course responsible for doing
+        # the same!).
+        public_key_file = "#{private_key_file}.pub"
+
+        private_key = File.read(private_key_file)
+        public_key = File.read(public_key_file)
+
+        connection = create_ssh_portal_connection!(ssh_public_key: public_key)
+        certificate = connection.ssh_certificate_body
+
+        with_temporary_id(private_key, public_key, certificate) do |id_file|
+          cmd = [
+            'ssh',
+            "#{connection.ssh_user}@#{account.bastion_host}",
+            '-p', account.ssh_portal_port.to_s
+          ] + ['-i', id_file]
+
+          # If we aren't allowed to create a pty, then we shouldn't try to
+          # allocate once, or we'll get an awkward error.
+          cmd << '-T' unless connection.ssh_pty
+
+          yield cmd, connection
+        end
+      end
+
+      private
+
+      def with_temporary_id(private_key, public_key, certificate)
+        # Most versions of OpenSSH don't support specifying the SSH certificate
+        # to use when connecting, so we create a temporary directory with the
+        # credentials and the certificate. From a security perspective, the CLI
+        # makes sure to use an Aptible-CLI only SSH key to minimize exposure
+        # should we fail to clean out the temporary directory.
+        Dir.mktmpdir do |dir|
+          private_key_file = File.join(dir, 'id_rsa')
+          public_key_file = "#{private_key_file}.pub"
+          certificate_file = "#{private_key_file}-cert.pub"
+
+          pairs = [
+            [private_key, private_key_file],
+            [public_key, public_key_file],
+            [certificate, certificate_file]
+          ]
+
+          pairs.each do |contents, file|
+            File.open(file, 'w', 0o600) { |f| f.write(contents) }
+          end
+
+          yield private_key_file
+        end
+      end
     end
   end
 end
