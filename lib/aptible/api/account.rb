@@ -1,5 +1,4 @@
 require 'aptible/auth'
-require 'stripe'
 
 module Aptible
   module Api
