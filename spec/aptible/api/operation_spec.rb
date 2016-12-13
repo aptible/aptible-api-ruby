@@ -66,8 +66,12 @@ describe Aptible::Api::Operation do
           if ssh_pty
             expect(cmd).not_to include('-T')
           else
-            expect(cmd.last).to eq('-T')
+            expect(cmd).to include('-T')
           end
+
+          identities_only = 'IdentitiesOnly=yes'
+          expect(cmd).to include(identities_only)
+          expect(cmd[cmd.index(identities_only) - 1]).to eq('-o')
 
           has_yielded = true
         end

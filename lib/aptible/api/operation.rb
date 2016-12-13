@@ -61,8 +61,10 @@ module Aptible
           cmd = [
             'ssh',
             "#{connection.ssh_user}@#{account.bastion_host}",
-            '-p', account.ssh_portal_port.to_s
-          ] + ['-i', id_file]
+            '-p', account.ssh_portal_port.to_s,
+            '-i', id_file,
+            '-o', 'IdentitiesOnly=yes'
+          ]
 
           # If we aren't allowed to create a pty, then we shouldn't try to
           # allocate once, or we'll get an awkward error.
