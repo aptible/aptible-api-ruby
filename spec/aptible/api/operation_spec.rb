@@ -3,12 +3,19 @@ require 'spec_helper'
 describe Aptible::Api::Operation do
   describe '#with_ssh_cmd' do
     shared_examples '#with_ssh_cmd examples' do
-      let(:account) do
+      let(:stack) do
         Aptible::Api::Account.new.tap do |account|
           account.stub(
-            bastion_host: 'foo-bastion.com',
-            ssh_portal_port: 1022
+            ssh_portal_host: 'foo-bastion.com',
+            ssh_portal_port: 1022,
+            ssh_host_rsa_public_key: 'some rsa key'
           )
+        end
+      end
+
+      let(:account) do
+        Aptible::Api::Account.new.tap do |account|
+          account.stub(stack: stack)
         end
       end
 
@@ -55,6 +62,14 @@ describe Aptible::Api::Operation do
           expect(File.read("#{id_file}.pub")).to eq('some public key')
           expect(File.read("#{id_file}-cert.pub")).to eq('some certificate')
 
+          hosts_param = cmd.find { |p| p.start_with?('UserKnownHostsFile') }
+          expect(cmd[cmd.index(hosts_param) - 1]).to eq('-o')
+          expect(hosts_param).not_to be_nil
+          hosts_file = hosts_param.split('=')[1]
+
+          expect(File.read(hosts_file))
+            .to eq("[foo-bastion.com]:1022 some rsa key\n")
+
           expect(File.readable?(id_file)).to be_truthy
           expect(File.writable?(id_file)).to be_truthy
 
@@ -69,9 +84,13 @@ describe Aptible::Api::Operation do
             expect(cmd).to include('-T')
           end
 
-          identities_only = 'IdentitiesOnly=yes'
-          expect(cmd).to include(identities_only)
-          expect(cmd[cmd.index(identities_only) - 1]).to eq('-o')
+          [
+            'IdentitiesOnly=yes',
+            'StrictHostKeyChecking=yes'
+          ].each do |option|
+            expect(cmd).to include(option)
+            expect(cmd[cmd.index(option) - 1]).to eq('-o')
+          end
 
           has_yielded = true
         end

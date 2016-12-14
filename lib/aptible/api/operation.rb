@@ -57,24 +57,42 @@ module Aptible
         connection = create_ssh_portal_connection!(ssh_public_key: public_key)
         certificate = connection.ssh_certificate_body
 
-        with_temporary_id(private_key, public_key, certificate) do |id_file|
-          cmd = [
-            'ssh',
-            "#{connection.ssh_user}@#{account.bastion_host}",
-            '-p', account.ssh_portal_port.to_s,
-            '-i', id_file,
-            '-o', 'IdentitiesOnly=yes'
-          ]
+        stack = account.stack
+        host = stack.ssh_portal_host
+        port = stack.ssh_portal_port
+        key = stack.ssh_host_rsa_public_key
 
-          # If we aren't allowed to create a pty, then we shouldn't try to
-          # allocate once, or we'll get an awkward error.
-          cmd << '-T' unless connection.ssh_pty
+        with_temporary_known_hosts(host, port, key) do |known_hosts_file|
+          with_temporary_id(private_key, public_key, certificate) do |id_file|
+            cmd = [
+              'ssh',
+              "#{connection.ssh_user}@#{host}",
+              '-p', port.to_s,
+              '-i', id_file,
+              '-o', 'IdentitiesOnly=yes',
+              '-o', "UserKnownHostsFile=#{known_hosts_file}",
+              '-o', 'StrictHostKeyChecking=yes'
+            ]
 
-          yield cmd, connection
+            # If we aren't allowed to create a pty, then we shouldn't try to
+            # allocate once, or we'll get an awkward error.
+            cmd << '-T' unless connection.ssh_pty
+
+            yield cmd, connection
+          end
         end
       end
 
       private
+
+      def with_temporary_known_hosts(host, port, key)
+        Dir.mktmpdir do |dir|
+          known_hosts_file = File.join(dir, 'known_hosts')
+          contents = "[#{host}]:#{port} #{key}\n"
+          File.open(known_hosts_file, 'w', 0o600) { |f| f.write(contents) }
+          yield known_hosts_file
+        end
+      end
 
       def with_temporary_id(private_key, public_key, certificate)
         # Most versions of OpenSSH don't support specifying the SSH certificate
