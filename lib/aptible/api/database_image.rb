@@ -9,6 +9,7 @@ module Aptible
       field :docker_repo
       field :visible, type: Aptible::Resource::Boolean
       field :default, type: Aptible::Resource::Boolean
+      field :discoverable, type: Aptible::Resource::Boolean
       field :created_at, type: Time
       field :updated_at, type: Time
     end
