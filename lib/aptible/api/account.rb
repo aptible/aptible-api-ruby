@@ -3,6 +3,8 @@ require 'aptible/auth'
 module Aptible
   module Api
     class Account < Resource
+      belongs_to :stack
+
       has_many :apps
       has_many :backups
       has_many :certificates
