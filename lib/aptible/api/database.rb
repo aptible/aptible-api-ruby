@@ -12,6 +12,7 @@ module Aptible
       has_many :backups
       has_many :dependents
       has_many :configurations
+      embeds_many :database_credentials
 
       field :id
       field :handle
