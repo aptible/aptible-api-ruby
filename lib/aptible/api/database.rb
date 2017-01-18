@@ -18,6 +18,7 @@ module Aptible
       field :handle
       field :type
       field :passphrase
+      field :port_mapping
       field :connection_url
       field :created_at, type: Time
       field :updated_at, type: Time
