@@ -22,6 +22,7 @@ module Aptible
       field :updated_at, type: Time
       field :status
       field :docker_repo
+      field :port_mapping
 
       def failed?
         # TODO: Add failed status at API level
