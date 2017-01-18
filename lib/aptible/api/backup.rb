@@ -3,6 +3,7 @@ module Aptible
     class Backup < Resource
       belongs_to :account
       belongs_to :database
+      belongs_to :database_image
       has_many :operations
 
       has_one :copied_from
