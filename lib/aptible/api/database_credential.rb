@@ -2,6 +2,7 @@ module Aptible
   module Api
     class DatabaseCredential < Resource
       belongs_to :database
+      has_many :operations
 
       field :id
       field :type
