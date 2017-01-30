@@ -11,6 +11,7 @@ module Aptible
       field :ebs_volume_type
       field :filesystem
       field :passphrase
+      field :key_bytes
       field :size
       field :host
       field :device
