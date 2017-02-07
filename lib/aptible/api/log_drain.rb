@@ -2,6 +2,7 @@ module Aptible
   module Api
     class LogDrain < Resource
       belongs_to :account
+      belongs_to :database
       has_many :operations
       has_many :containers
 
@@ -22,6 +23,8 @@ module Aptible
       field :gentlemanjerry_certificate
       field :gentlemanjerry_docker_name
       field :gentlemanjerry_instance_id
+      field :url
+      field :logging_token
     end
   end
 end
