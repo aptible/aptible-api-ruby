@@ -8,7 +8,9 @@ module Aptible
       field :id
       field :virtual_domain
       field :type
+      field :application_load_balancer_arn
       field :elastic_load_balancer_name
+      field :security_group_id
       field :external_host
       field :external_http_port
       field :external_https_port
@@ -24,6 +26,7 @@ module Aptible
       field :acme, type: Aptible::Resource::Boolean
       field :user_domain
       field :acme_status
+      field :ip_whitelist
 
       def account
         service.account
