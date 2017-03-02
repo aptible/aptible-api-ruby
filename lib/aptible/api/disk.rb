@@ -20,6 +20,7 @@ module Aptible
       field :updated_at, type: Time
       field :ec2_instance_id
       field :baseline_iops
+      field :availability_zone
     end
   end
 end
