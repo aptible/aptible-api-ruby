@@ -15,6 +15,7 @@ module Aptible
       field :updated_at, type: Time
       field :layer
       field :aws_instance_id
+      field :port_mapping
     end
   end
 end
