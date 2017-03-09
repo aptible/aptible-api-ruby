@@ -27,6 +27,7 @@ module Aptible
       field :user_domain
       field :acme_status
       field :ip_whitelist
+      field :acme_dns_challenge_host
 
       def account
         service.account
