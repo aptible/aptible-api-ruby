@@ -7,6 +7,7 @@ module Aptible
       belongs_to :resource
 
       has_many :ssh_portal_connections
+      has_many :ephemeral_sessions
 
       field :id
       field :type
@@ -23,6 +24,7 @@ module Aptible
       field :disk_size
       field :command
       field :destination_region
+      field :interactive
       field :user_name
       field :user_email
       field :created_at, type: Time
@@ -43,7 +45,7 @@ module Aptible
         status == 'failed'
       end
 
-      def with_ssh_cmd(private_key_file)
+      def with_ssh_cmd(private_key_file, host: nil, port: nil, host_key: nil)
         # We expect that the public key will be found next to the private key,
         # which is also what SSH itself expects. If that's not the case, then
         # we'll just fail. The Aptible CLI will always ensure credentials are
@@ -58,11 +60,13 @@ module Aptible
         certificate = connection.ssh_certificate_body
 
         stack = account.stack
-        host = stack.ssh_portal_host
-        port = stack.ssh_portal_port
-        key = stack.ssh_host_rsa_public_key
+        host ||= stack.ssh_portal_host
+        port ||= stack.ssh_portal_port
+        host_key ||= stack.ssh_host_rsa_public_key
 
-        with_temporary_known_hosts(host, port, key) do |known_hosts_file|
+        with_temporary_known_hosts(
+          host, port, host_key
+        ) do |known_hosts_file|
           with_temporary_id(private_key, public_key, certificate) do |id_file|
             cmd = [
               'ssh',
@@ -85,10 +89,10 @@ module Aptible
 
       private
 
-      def with_temporary_known_hosts(host, port, key)
+      def with_temporary_known_hosts(host, port, host_key)
         Dir.mktmpdir do |dir|
           known_hosts_file = File.join(dir, 'known_hosts')
-          contents = "[#{host}]:#{port} #{key}\n"
+          contents = "[#{host}]:#{port} #{host_key}\n"
           File.open(known_hosts_file, 'w', 0o600) { |f| f.write(contents) }
           yield known_hosts_file
         end
