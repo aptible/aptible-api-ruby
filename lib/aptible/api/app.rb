@@ -10,6 +10,7 @@ module Aptible
       has_many :images
       has_many :operations
       has_many :vhosts
+      has_many :ephemeral_sessions
       embeds_many :services
 
       field :id

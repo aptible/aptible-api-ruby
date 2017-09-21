@@ -97,6 +97,38 @@ describe Aptible::Api::Operation do
 
         expect(has_yielded).to be_truthy
       end
+
+      it 'allows passing a custom host' do
+        expect(subject).to receive(:create_ssh_portal_connection!)
+          .with(ssh_public_key: 'some public key')
+          .and_return(ssh_portal_connection)
+
+        has_yielded = false
+
+        subject.with_ssh_cmd(
+          private_key_file,
+          host: 'host-foo.com',
+          port: 123,
+          host_key: 'foo key'
+        ) do |cmd, _|
+          _, dest, _, port, = cmd
+
+          expect(dest).to eq('foo-user@host-foo.com')
+          expect(port).to eq('123')
+
+          hosts_param = cmd.find { |p| p.start_with?('UserKnownHostsFile') }
+          expect(cmd[cmd.index(hosts_param) - 1]).to eq('-o')
+          expect(hosts_param).not_to be_nil
+          hosts_file = hosts_param.split('=')[1]
+
+          expect(File.read(hosts_file))
+            .to eq("[host-foo.com]:123 foo key\n")
+
+          has_yielded = true
+        end
+
+        expect(has_yielded).to be_truthy
+      end
     end
 
     context 'with a PTY' do
