@@ -25,6 +25,7 @@ module Aptible
       field :command
       field :destination_region
       field :interactive
+      belongs_to :destination_account
       field :user_name
       field :user_email
       field :created_at, type: Time
