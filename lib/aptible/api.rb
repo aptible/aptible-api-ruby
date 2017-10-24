@@ -1,3 +1,5 @@
+require 'tmpdir'
+
 require 'aptible/auth'
 require 'gem_config'
 
