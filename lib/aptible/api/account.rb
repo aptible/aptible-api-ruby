@@ -12,6 +12,7 @@ module Aptible
       has_many :disks
       has_many :services
       has_many :permissions
+      has_many :metric_drains
       embeds_many :log_drains
 
       field :id
