@@ -2,6 +2,7 @@ module Aptible
   module Api
     class MetricDrain < Resource
       belongs_to :account
+      belongs_to :database
       has_many :operations
       has_many :containers
 
