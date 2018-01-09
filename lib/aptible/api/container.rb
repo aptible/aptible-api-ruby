@@ -4,6 +4,7 @@ module Aptible
       belongs_to :release
       belongs_to :vhost
       belongs_to :log_drain
+      belongs_to :metric_drain
 
       field :id
       field :host
@@ -16,6 +17,7 @@ module Aptible
       field :layer
       field :aws_instance_id
       field :port_mapping
+      field :mounts
     end
   end
 end
