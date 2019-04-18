@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'aptible-auth', '~> 1.0'
   spec.add_dependency 'gem_config'
 
-  spec.add_development_dependency 'bundler', '~> 1.3'
+  spec.add_development_dependency 'bundler', '>= 1.3', '< 3.0'
   spec.add_development_dependency 'aptible-tasks', '>= 0.2.0'
   spec.add_development_dependency 'activesupport'
   spec.add_development_dependency 'rake', '~> 10.5'
