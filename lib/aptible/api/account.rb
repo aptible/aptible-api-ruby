@@ -13,6 +13,7 @@ module Aptible
       has_many :services
       has_many :permissions
       has_many :metric_drains
+      has_many :backup_retention_policy
       embeds_many :log_drains
 
       field :id
