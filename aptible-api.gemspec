@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
@@ -19,15 +20,15 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^spec/})
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'aptible-resource', '~> 1.0'
   spec.add_dependency 'aptible-auth', '~> 1.0'
+  spec.add_dependency 'aptible-resource', '~> 1.0'
   spec.add_dependency 'gem_config'
 
-  spec.add_development_dependency 'bundler', '~> 1.3'
-  spec.add_development_dependency 'aptible-tasks', '>= 0.2.0'
   spec.add_development_dependency 'activesupport'
-  spec.add_development_dependency 'rake', '~> 10.5'
-  spec.add_development_dependency 'rspec', '~> 2.0'
+  spec.add_development_dependency 'aptible-tasks', '>= 0.2.0'
+  spec.add_development_dependency 'bundler', '~> 1.3'
   spec.add_development_dependency 'foreman'
   spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'rake', '~> 10.5'
+  spec.add_development_dependency 'rspec', '~> 2.0'
 end
