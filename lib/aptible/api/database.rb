@@ -28,6 +28,7 @@ module Aptible
       def failed?
         # TODO: Add failed status at API level
         return false if provisioned?
+
         operations.select { |o| o.type == 'provision' }.all?(&:failed?)
       end
 

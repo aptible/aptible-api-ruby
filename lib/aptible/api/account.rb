@@ -13,6 +13,7 @@ module Aptible
       has_many :services
       has_many :permissions
       has_many :metric_drains
+      has_many :backup_retention_policy
       embeds_many :log_drains
 
       field :id
@@ -51,6 +52,7 @@ module Aptible
 
       def organization
         return @organization if @organization
+
         auth = Aptible::Auth::Organization.new(token: token, headers: headers)
         @organization = auth.find_by_url(organization_url)
       end

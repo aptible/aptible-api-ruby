@@ -34,7 +34,7 @@ module Aptible
       def user
         auth = Aptible::Auth::User.new(token: token, headers: headers)
         auth.find_by_url(links['user'].href)
-      rescue
+      rescue StandardError
         nil
       end
 
