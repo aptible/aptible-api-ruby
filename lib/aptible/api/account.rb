@@ -61,6 +61,14 @@ module Aptible
         rand = ('a'..'z').to_a.sample(8).join
         "#{organization_name.parameterize}-#{plan_id}-#{rand}"
       end
+
+      def each_orphaned_backup
+        base_href = "#{links['backups'].base_href}?orphaned=true"
+        Backup.each_page(href: base_href, headers: headers,
+                         token: token) do |page|
+          page.each { |entry| yield entry }
+        end
+      end
     end
   end
 end
