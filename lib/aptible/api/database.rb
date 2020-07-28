@@ -35,6 +35,12 @@ module Aptible
       def provisioned?
         status == 'provisioned'
       end
+
+      def current_configuration_with_deleted
+        id = links['current_configuration'].href.split('/').last
+        Aptible::Api::Configuration.find(
+          id, with_deleted: true, token: token, headers: headers)
+      end
     end
   end
 end
