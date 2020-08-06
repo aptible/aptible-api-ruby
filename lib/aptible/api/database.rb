@@ -39,7 +39,15 @@ module Aptible
       def current_configuration_with_deleted
         id = links['current_configuration'].href.split('/').last
         Aptible::Api::Configuration.find(
-          id, with_deleted: true, token: token, headers: headers)
+          id, with_deleted: true, token: token, headers: headers
+        )
+      end
+
+      def disk_with_deleted
+        id = links['disk'].href.split('/').last
+        Aptible::Api::Disk.find(
+          id, with_deleted: true, token: token, headers: headers
+        )
       end
     end
   end
