@@ -28,6 +28,7 @@ module Aptible
       belongs_to :destination_account
       field :user_name
       field :user_email
+      field :immediate
       field :created_at, type: Time
       field :updated_at, type: Time
 
