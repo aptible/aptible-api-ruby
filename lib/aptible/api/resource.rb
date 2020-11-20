@@ -16,6 +16,7 @@ end
 
 require 'aptible/api/account'
 require 'aptible/api/app'
+require 'aptible/api/aws_instance'
 require 'aptible/api/backup'
 require 'aptible/api/certificate'
 require 'aptible/api/configuration'
