@@ -2,7 +2,7 @@ require 'aptible/auth'
 
 module Aptible
   module Api
-    class OperationBase < Resource
+    class StackOperation < Resource
       # belongs_to :account
       belongs_to :resource
 

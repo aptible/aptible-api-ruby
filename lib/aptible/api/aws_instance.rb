@@ -12,10 +12,6 @@ module Aptible
       field :layers
       field :created_at, type: Time
       field :updated_at, type: Time
-
-      def provisioned?
-        status == 'provisioned'
-      end
     end
   end
 end
