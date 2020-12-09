@@ -2,6 +2,7 @@ module Aptible
   module Api
     class AwsInstance < Resource
       belongs_to :stack
+      has_many :operations
 
       field :id
       field :instance_id
