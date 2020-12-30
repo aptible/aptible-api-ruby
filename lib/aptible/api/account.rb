@@ -32,9 +32,7 @@ module Aptible
       field :gentlemanjerry_docker_name
       field :gentlemanjerry_instance_id
       field :ca_body
-      field :encrypted_ca_private_key
-      field :encrypted_ca_private_key_iv
-      field :ca_not_after, type: Time
+      field :ca_private_key
 
       def production?
         type == 'production'
