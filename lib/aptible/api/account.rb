@@ -31,6 +31,8 @@ module Aptible
       field :gentlemanjerry_certificate
       field :gentlemanjerry_docker_name
       field :gentlemanjerry_instance_id
+      field :ca_body
+      field :ca_private_key
 
       def production?
         type == 'production'
