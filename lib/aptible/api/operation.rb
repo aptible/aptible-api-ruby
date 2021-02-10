@@ -3,8 +3,9 @@ require 'aptible/auth'
 module Aptible
   module Api
     class Operation < Resource
-      belongs_to :account
       belongs_to :resource
+      belongs_to :account
+      belongs_to :destination_account
 
       has_many :ssh_portal_connections
       has_many :ephemeral_sessions
@@ -25,7 +26,6 @@ module Aptible
       field :command
       field :destination_region
       field :interactive
-      belongs_to :destination_account
       field :user_name
       field :user_email
       field :immediate
