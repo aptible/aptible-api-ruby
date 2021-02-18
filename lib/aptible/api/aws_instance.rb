@@ -3,6 +3,7 @@ module Aptible
     class AwsInstance < Resource
       belongs_to :stack
       has_many :operations
+      embeds_many :databases
 
       field :id
       field :instance_id
