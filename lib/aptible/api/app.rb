@@ -11,6 +11,7 @@ module Aptible
       has_many :operations
       has_many :vhosts
       has_many :ephemeral_sessions
+      has_many :aws_instances
       embeds_many :services
 
       field :id
