@@ -31,6 +31,7 @@ module Aptible
       field :immediate
       field :created_at, type: Time
       field :updated_at, type: Time
+      field :options
 
       def user
         auth = Aptible::Auth::User.new(token: token, headers: headers)
