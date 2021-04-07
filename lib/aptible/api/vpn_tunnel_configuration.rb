@@ -22,6 +22,18 @@ module Aptible
       field :created_at, type: Time
       field :updated_at, type: Time
 
+      DH_KEYWORD = {
+        '2' => 'modp1024',
+        '5' => 'modp1536',
+        '14' => 'modp2048',
+        '15' => 'modp3072',
+        '17' => 'modp6144',
+        '18' => 'modp8192',
+        '22' => 'dh22',
+        '23' => 'dh23',
+        '24' => 'dh24'
+      }.freeze
+
       def pfs?
         !phase2_dh_group.nil?
       end
@@ -40,11 +52,11 @@ module Aptible
       end
 
       def phase1_alg
-        "#{phase1_encryption_alg}-#{phase1_auth_alg};#{phase1_dh_group}"
+        "#{phase1_encryption_alg}-#{phase1_auth_alg};#{DH_KEYWORD[phase1_dh_group]}"
       end
 
       def phase2_alg
-        "#{phase1_encryption_alg}-#{phase1_auth_alg};#{phase2_dh_group}"
+        "#{phase1_encryption_alg}-#{phase1_auth_alg};#{DH_KEYWORD[phase2_dh_group]}"
       end
     end
   end
