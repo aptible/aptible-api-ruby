@@ -2,12 +2,12 @@ module Aptible
   module Api
     class AwsInstance < Resource
       belongs_to :stack
+      belongs_to :ami
       has_many :operations
       embeds_many :databases
 
       field :id
       field :instance_id
-      field :ami
       field :instance_type
       field :availability_zone
       field :name
