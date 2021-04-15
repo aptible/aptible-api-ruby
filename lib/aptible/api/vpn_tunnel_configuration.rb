@@ -3,6 +3,7 @@ module Aptible
     class VpnTunnelConfiguration < Resource
       belongs_to :managed_vpn_tunnel
       has_many :vpn_tunnel_configuration_vhosts
+      has_many :routes
 
       field :id
       field :peer_ip
@@ -45,18 +46,21 @@ module Aptible
 
         if outbound_ip
           stack_name = managed_vpn_tunnel.stack.name
-          networks.unshift(["#{outbound_ip}/32", "bastion-layer-#{stack_name}.aptible.in"])
+          networks.unshift(["#{outbound_ip}/32",
+                            "bastion-layer-#{stack_name}.aptible.in"])
         end
 
         networks
       end
 
       def phase1_alg
-        "#{phase1_encryption_alg}-#{phase1_auth_alg};#{DH_KEYWORD[phase1_dh_group]}"
+        "#{phase1_encryption_alg}-#{phase1_auth_alg};" \
+          "#{DH_KEYWORD[phase1_dh_group]}"
       end
 
       def phase2_alg
-        "#{phase1_encryption_alg}-#{phase1_auth_alg};#{DH_KEYWORD[phase2_dh_group]}"
+        "#{phase1_encryption_alg}-#{phase1_auth_alg};" \
+          "#{DH_KEYWORD[phase2_dh_group]}"
       end
     end
   end
