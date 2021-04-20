@@ -15,6 +15,8 @@ module Aptible
 end
 
 require 'aptible/api/account'
+require 'aptible/api/ami'
+require 'aptible/api/ami_release'
 require 'aptible/api/app'
 require 'aptible/api/aws_instance'
 require 'aptible/api/backup'
