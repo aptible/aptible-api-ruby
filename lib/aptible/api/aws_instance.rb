@@ -12,6 +12,7 @@ module Aptible
       field :availability_zone
       field :name
       field :layers
+      field :status
       field :created_at, type: Time
       field :updated_at, type: Time
     end
