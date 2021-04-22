@@ -35,6 +35,13 @@ module Aptible
         '24' => 'dh24'
       }.freeze
 
+      AUTH_ALG_KEYWORD = {
+        'sha512' => 'sha2_512',
+        'sha256' => 'sha2_256',
+        'sha' => 'sha1',
+        'md5' => 'md5'
+      }.freeze
+
       def pfs?
         !phase2_dh_group.nil?
       end
@@ -54,12 +61,12 @@ module Aptible
       end
 
       def phase1_alg
-        "#{phase1_encryption_alg}-#{phase1_auth_alg};" \
+        "#{phase1_encryption_alg}-#{AUTH_ALG_KEYWORD[phase1_auth_alg]};" \
           "#{DH_KEYWORD[phase1_dh_group]}"
       end
 
       def phase2_alg
-        "#{phase1_encryption_alg}-#{phase1_auth_alg};" \
+        "#{phase2_encryption_alg}-#{AUTH_ALG_KEYWORD[phase2_auth_alg]};" \
           "#{DH_KEYWORD[phase2_dh_group]}"
       end
     end
