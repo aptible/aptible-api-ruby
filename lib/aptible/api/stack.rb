@@ -2,6 +2,8 @@ module Aptible
   module Api
     class Stack < Resource
       has_many :aws_instances
+      has_many :stack_layers
+      has_many :operations
 
       field :id
       field :type
