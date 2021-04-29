@@ -2,6 +2,7 @@ module Aptible
   module Api
     class ManagedVpnTunnel < Resource
       belongs_to :stack
+      belongs_to :aws_instance
       embeds_one :current_configuration
       has_many :configurations
       has_many :operations
