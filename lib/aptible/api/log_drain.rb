@@ -8,6 +8,7 @@ module Aptible
 
       field :id
       field :handle
+      field :backend
       field :drain_type
       field :drain_host
       field :drain_port
