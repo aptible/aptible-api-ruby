@@ -4,8 +4,9 @@ module Aptible
       belongs_to :account
       belongs_to :database
       belongs_to :database_image
-      has_many :operations
+      belongs_to :created_from_operation
 
+      has_many :operations
       has_one :copied_from
       has_many :copies
 
