@@ -18,6 +18,10 @@ module Aptible
       field :ssh_portal_port
       field :created_at, type: Time
       field :updated_at, type: Time
+
+      def dns_layers
+        stack_layers.reject!(&:dns_name.blank?)
+      end
     end
   end
 end
