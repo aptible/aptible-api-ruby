@@ -20,7 +20,7 @@ module Aptible
       field :updated_at, type: Time
 
       def dns_layers
-        stack_layers.reject!(&:dns_name.blank?)
+        stack_layers.reject! { |l| l.dns_name.blank? }
       end
     end
   end
