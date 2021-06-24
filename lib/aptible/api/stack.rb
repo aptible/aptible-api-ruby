@@ -2,6 +2,8 @@ module Aptible
   module Api
     class Stack < Resource
       has_many :aws_instances
+      has_many :stack_layers
+      has_many :operations
 
       field :id
       field :type
@@ -16,6 +18,10 @@ module Aptible
       field :ssh_portal_port
       field :created_at, type: Time
       field :updated_at, type: Time
+
+      def dns_layers
+        stack_layers.reject! { |l| l.dns_name.blank? }
+      end
     end
   end
 end
