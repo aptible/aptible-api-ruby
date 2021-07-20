@@ -6,9 +6,13 @@ module Aptible
       has_many :operations
       has_many :containers
 
+      # Temporary until deploy-api renames this field
+      embeds_one :new_backend
+      # Necessary to avoid downtime when new_backend becomes backend
+      embeds_one :backend
+
       field :id
       field :handle
-      field :backend
       field :drain_type
       field :drain_host
       field :drain_port
