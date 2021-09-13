@@ -13,10 +13,15 @@ module Aptible
       field :availability_zone
       field :name
       field :status
+      field :kernel_version
+      field :os_version
+      field :docker_version
+      field :runtime_data
       field :deprovisionable, type: Aptible::Resource::Boolean
       field :created_at, type: Time
       field :updated_at, type: Time
       field :retain_until, type: Time
+      field :runtime_published_at, type: Time
 
       def stack_layers
         instance_layer_memberships.map(&:links)
