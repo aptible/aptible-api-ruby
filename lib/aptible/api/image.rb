@@ -3,6 +3,7 @@ module Aptible
     class Image < Resource
       belongs_to :app
       has_many :operations
+      has_many :container_vulnerability_scan_results
 
       field :id
       field :git_repo
