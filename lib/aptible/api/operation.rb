@@ -29,6 +29,7 @@ module Aptible
       field :user_name
       field :user_email
       field :immediate
+      field :stack_settings
       field :created_at, type: Time
       field :updated_at, type: Time
 
