@@ -5,7 +5,7 @@ module Aptible
       belongs_to :ami
       has_many :operations
       has_many :instance_layer_memberships
-      embeds_many :databases
+      has_many :databases
 
       field :id
       field :instance_id
