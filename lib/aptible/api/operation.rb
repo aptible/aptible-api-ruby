@@ -32,6 +32,7 @@ module Aptible
       field :stack_settings
       field :created_at, type: Time
       field :updated_at, type: Time
+      field :instance_profile
 
       def user
         auth = Aptible::Auth::User.new(token: token, headers: headers)
