@@ -6,6 +6,7 @@ module Aptible
       has_many :operations
       has_many :instance_layer_memberships
       has_many :databases
+      has_many :services
 
       field :id
       field :instance_id
