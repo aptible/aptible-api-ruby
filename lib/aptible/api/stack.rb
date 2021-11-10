@@ -32,7 +32,8 @@ module Aptible
 
         return unless links['aws_instances']
 
-        href = "#{links['aws_instances'].base_href}?include_deprovisionable=true"
+        param = 'include_deprovisionable=true'
+        href = "#{links['aws_instances'].base_href}?#{param}"
         self.class.all(
           href: href,
           token: token,
