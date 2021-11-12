@@ -7,6 +7,7 @@ module Aptible
       has_many :instance_layer_memberships
       has_many :databases
       has_many :services
+      has_many :log_drains
 
       field :id
       field :instance_id
