@@ -22,6 +22,24 @@ module Aptible
       def dns_layers
         stack_layers.reject! { |l| l.dns_name.blank? }
       end
+
+      # This method is necessary because we need to include a query parameter
+      # when requesting aws_instances.
+      # Copied the important bits from
+      # https://github.com/aptible/aptible-resource/blob/4708fb80a6c21013de07c2779ffc4928cee37d4e/lib/aptible/resource/base.rb#L138
+      def aws_instances_with_deprovisionable
+        get unless loaded
+
+        return unless links['aws_instances']
+
+        param = 'include_deprovisionable=true'
+        href = "#{links['aws_instances'].base_href}?#{param}"
+        self.class.all(
+          href: href,
+          token: token,
+          headers: headers
+        )
+      end
     end
   end
 end
