@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'aptible-auth', '~> 1.0'
   spec.add_dependency 'aptible-resource', '~> 1.0'
   spec.add_dependency 'gem_config'
+  spec.add_dependency 'multipart-post', '<2.2.0'
 
   spec.add_development_dependency 'activesupport'
   spec.add_development_dependency 'aptible-tasks', '>= 0.2.0'
