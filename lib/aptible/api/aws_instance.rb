@@ -24,6 +24,8 @@ module Aptible
       field :updated_at, type: Time
       field :retain_until, type: Time
       field :runtime_published_at, type: Time
+      field :deprovision_last_attempted_at, type: Time
+      field :retained_since, type: Time
 
       def stack_layers
         instance_layer_memberships.map(&:links)
