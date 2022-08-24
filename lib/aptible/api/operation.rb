@@ -41,6 +41,10 @@ module Aptible
         nil
       end
 
+      def logs_url
+        links['logs'].href
+      end
+
       def succeeded?
         status == 'succeeded'
       end
