@@ -16,6 +16,7 @@ module Aptible
       field :ssh_host_ecdsa_public_key
       field :ssh_portal_host
       field :ssh_portal_port
+      field :organization_id
       field :created_at, type: Time
       field :updated_at, type: Time
 

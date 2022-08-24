@@ -25,6 +25,7 @@ module Aptible
       field :activated, type: Aptible::Resource::Boolean
       field :syslog_host
       field :syslog_port
+      field :organization_id
       field :created_at, type: Time
       field :updated_at, type: Time
       field :gentlemanjerry_endpoint
