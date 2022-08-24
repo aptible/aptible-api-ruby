@@ -42,7 +42,7 @@ module Aptible
       end
 
       def logs_url
-        links['logs_url']
+        links['logs'].href
       end
 
       def succeeded?
