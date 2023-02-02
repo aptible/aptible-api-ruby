@@ -10,6 +10,8 @@ module Aptible
       has_many :ssh_portal_connections
       has_many :ephemeral_sessions
 
+      has_one :code_scan_result
+
       field :id
       field :type
       field :status

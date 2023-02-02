@@ -12,6 +12,7 @@ module Aptible
       has_many :vhosts
       has_many :ephemeral_sessions
       has_many :aws_instances
+      has_many :code_scan_results
       embeds_many :services
 
       field :id
