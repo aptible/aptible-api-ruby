@@ -3,6 +3,7 @@ module Aptible
     class App < Resource
       belongs_to :account
       belongs_to :current_configuration
+      has_one :last_code_scan_result
       embeds_one :current_image
       embeds_one :last_operation
       embeds_one :last_deploy_operation
