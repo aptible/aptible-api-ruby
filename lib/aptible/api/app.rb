@@ -13,6 +13,8 @@ module Aptible
       has_many :vhosts
       has_many :ephemeral_sessions
       has_many :aws_instances
+      has_many :prerelease_commands
+      has_many :service_definitions
       has_many :code_scan_results
       embeds_many :services
 
