@@ -3,6 +3,7 @@ module Aptible
     class App < Resource
       belongs_to :account
       belongs_to :current_configuration
+      has_one :last_code_scan_result
       embeds_one :current_image
       embeds_one :last_operation
       embeds_one :last_deploy_operation
@@ -14,6 +15,7 @@ module Aptible
       has_many :aws_instances
       has_many :prerelease_commands
       has_many :service_definitions
+      has_many :code_scan_results
       embeds_many :services
 
       field :id
