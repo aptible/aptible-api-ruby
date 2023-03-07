@@ -12,6 +12,7 @@ module Aptible
       field :environment_limit
       field :vhost_limit
       field :compliance_dashboard_access
+      field :organization_id
       field :created_at, type: Time
       field :updated_at, type: Time
     end
