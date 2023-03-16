@@ -18,6 +18,7 @@ module Aptible
       field :aws_instance_id
       field :port_mapping
       field :mounts
+      field :instance_class
     end
   end
 end
