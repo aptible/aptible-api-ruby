@@ -10,7 +10,6 @@ module Aptible
       field :environment_limit
       field :vhost_limit
       field :compliance_dashboard_access
-      field :allowed_plans
       field :included_container_mb
       field :included_disk_gb
       field :included_vhosts
