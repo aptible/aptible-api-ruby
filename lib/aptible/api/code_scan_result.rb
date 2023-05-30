@@ -14,8 +14,6 @@ module Aptible
       field :git_ref
       field :git_commit
       field :languages_detected
-      field :total_repo_size_bytes
-      field :total_file_count
 
       field :created_at, type: Time
       field :updated_at, type: Time
