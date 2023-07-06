@@ -10,6 +10,7 @@ module Aptible
       has_many :certificates
       has_many :databases
       has_many :disks
+      has_many :persistent_disks
       has_many :services
       has_many :permissions
       has_many :metric_drains
