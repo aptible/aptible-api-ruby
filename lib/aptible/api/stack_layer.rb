@@ -4,6 +4,7 @@ module Aptible
       belongs_to :stack
       belongs_to :lead_instance
       has_many :instance_layer_memberships
+      has_many :aws_instances
 
       field :id
       field :name
