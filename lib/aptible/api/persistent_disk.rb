@@ -3,6 +3,7 @@ module Aptible
     class PersistentDisk < Resource
       belongs_to :account
       has_many :operations
+      has_many :disk_attachments
 
       field :id
       field :handle
