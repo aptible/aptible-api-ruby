@@ -8,6 +8,7 @@ module Aptible
       has_many :vhosts
       has_many :operations
       has_many :releases
+      has_many :disk_attachments
 
       field :id
       field :handle
