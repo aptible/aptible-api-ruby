@@ -6,6 +6,7 @@ module Aptible
       belongs_to :resource
       belongs_to :account
       belongs_to :destination_account
+      belongs_to :service
 
       has_many :ssh_portal_connections
       has_many :ephemeral_sessions
@@ -35,6 +36,7 @@ module Aptible
       field :created_at, type: Time
       field :updated_at, type: Time
       field :instance_profile
+      field :mount_point
 
       def user
         auth = Aptible::Auth::User.new(token: token, headers: headers)
