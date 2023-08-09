@@ -19,6 +19,7 @@ module Aptible
       field :deleted_at, type: Time
       field :baseline_iops
       field :availability_zone
+      field :formatted
     end
   end
 end
