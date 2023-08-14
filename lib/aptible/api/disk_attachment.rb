@@ -5,6 +5,8 @@ module Aptible
       embeds_one :persistent_disk
       embeds_one :service
 
+      has_many :operations
+
       field :id
       field :mount_point
       field :created_at, type: Time
