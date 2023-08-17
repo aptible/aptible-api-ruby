@@ -8,7 +8,7 @@ module Aptible
       field :status
       field :maintenance_deadline
       def self.collection_href
-        "/maintenances/#{basename}"
+        "/maintenances/apps"
       end
     end
     class MaintenanceDatabase < Resource
@@ -19,7 +19,7 @@ module Aptible
       field :status
       field :maintenance_deadline
       def self.collection_href
-        "/maintenances/#{basename}"
+        "/maintenances/databases"
       end
     end
   end
