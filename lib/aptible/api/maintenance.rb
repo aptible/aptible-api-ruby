@@ -1,6 +1,7 @@
 module Aptible
   module Api
     class MaintenanceApp < Resource
+      belongs_to :account
       field :id
       field :handle
       field :created_at
@@ -12,6 +13,7 @@ module Aptible
       end
     end
     class MaintenanceDatabase < Resource
+      belongs_to :account
       field :id
       field :handle
       field :created_at
