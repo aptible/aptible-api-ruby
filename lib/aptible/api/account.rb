@@ -16,6 +16,8 @@ module Aptible
       has_many :permissions
       has_many :metric_drains
       has_many :backup_retention_policy
+      has_many :vhosts
+      has_many :backup_retention_policies
       embeds_many :log_drains
 
       field :id
