@@ -14,12 +14,13 @@ module Aptible
       field :aws_resource_id
       field :kms_arn
       field :modification_progress
-      field :created_at, type: Time
-      field :updated_at, type: Time
-      field :deleted_at, type: Time
       field :baseline_iops
       field :availability_zone
       field :formatted
+      field :modified_at, type: Time
+      field :created_at, type: Time
+      field :updated_at, type: Time
+      field :deleted_at, type: Time
     end
   end
 end
