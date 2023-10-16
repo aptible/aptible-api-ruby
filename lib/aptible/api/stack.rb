@@ -17,6 +17,8 @@ module Aptible
       field :ssh_portal_host
       field :ssh_portal_port
       field :organization_id
+      field :coordinator_id
+      field :metadata_bucket
       field :created_at, type: Time
       field :updated_at, type: Time
 
