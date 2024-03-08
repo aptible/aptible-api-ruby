@@ -21,6 +21,7 @@ module Aptible
       field :peer_networks
       field :key_exchange
       field :auto
+      field :status
       field :deleted_at, type: Time
       field :created_at, type: Time
       field :updated_at, type: Time
