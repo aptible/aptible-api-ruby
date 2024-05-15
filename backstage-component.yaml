@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: aptible-api-ruby
+  description: Ruby gem that allows users to interact with Deploy API
+  annotations: 
+    github.com/project-slug: aptible/aptible-api-ruby
+spec:
+  type: library
+  lifecycle: production
+  owner: engineers
+  providesApis:
+    - deploy-api
+  consumesApis:
+    - auth-api
+  
