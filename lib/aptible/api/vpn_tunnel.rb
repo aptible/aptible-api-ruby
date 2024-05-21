@@ -23,6 +23,9 @@ module Aptible
       field :auto
       field :status
       field :backend
+      field :state
+      field :tunnel_status
+      field :tunnel_attributes
       field :deleted_at, type: Time
       field :created_at, type: Time
       field :updated_at, type: Time
