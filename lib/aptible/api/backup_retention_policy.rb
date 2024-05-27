@@ -6,6 +6,7 @@ module Aptible
       field :id
       field :daily
       field :monthly
+      field :yearly
       field :make_copy, type: Aptible::Resource::Boolean
       field :created_at, type: Time
       field :updated_at, type: Time
