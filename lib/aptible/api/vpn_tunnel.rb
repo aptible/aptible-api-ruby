@@ -21,6 +21,7 @@ module Aptible
       field :peer_networks
       field :key_exchange
       field :auto
+      field :dpd_action
       field :status
       field :backend
       field :state
