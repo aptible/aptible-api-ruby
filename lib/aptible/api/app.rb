@@ -4,6 +4,7 @@ module Aptible
       belongs_to :account
       belongs_to :current_configuration
       has_one :last_code_scan_result
+      has_one :current_deployment
       embeds_one :current_image
       embeds_one :last_operation
       embeds_one :last_deploy_operation
