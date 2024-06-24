@@ -17,6 +17,9 @@ module Aptible
       field :ssh_portal_host
       field :ssh_portal_port
       field :organization_id
+      field :allow_c_instance_profile
+      field :allow_m_instance_profile
+      field :allow_r_instance_profile
       field :created_at, type: Time
       field :updated_at, type: Time
 
