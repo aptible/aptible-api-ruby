@@ -1,0 +1,36 @@
+name: Tests
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    name: Run tests on Ruby ${{ matrix.RUBY_VERSION }}
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        RUBY_VERSION: [2.1, 2.2, 2.3, 2.4, 2.5, 2.6]
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.RUBY_VERSION }}
+          bundler: 1.17.3
+
+      - name: Bundle install
+        run: bundle install
+
+      - name: Rubocop
+        run: bundle exec rake rubocop
+
+      - name: Rspec
+        run: bundle exec rspec
