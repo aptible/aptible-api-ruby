@@ -26,6 +26,7 @@ module Aptible
       field :updated_at, type: Time
       field :status
       field :deployment_method
+      field :hooks
 
       def provisioned?
         status == 'provisioned'
