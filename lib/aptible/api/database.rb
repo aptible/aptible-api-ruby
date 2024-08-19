@@ -25,6 +25,7 @@ module Aptible
       field :status
       field :docker_repo
       field :port_mapping
+      field :logical_replica
 
       def failed?
         # TODO: Add failed status at API level
