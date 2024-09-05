@@ -9,6 +9,7 @@ module Aptible
       has_many :operations
       has_many :releases
       has_many :disk_attachments
+      has_one :service_sizing_policy
 
       field :id
       field :handle
