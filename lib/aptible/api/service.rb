@@ -9,6 +9,7 @@ module Aptible
       has_many :operations
       has_many :releases
       has_many :disk_attachments
+      has_one :service_sizing_policy
 
       field :id
       field :handle
@@ -21,6 +22,21 @@ module Aptible
       field :instance_class
       field :created_at, type: Time
       field :updated_at, type: Time
+
+      def create_service_sizing_policy!(params)
+        params = { token: token }.merge(params)
+
+        # First create a link object so we know where to go
+        link = HyperResource::Link.new(
+          self,
+          'href' => "#{href}/service_sizing_policies"
+        )
+
+        # Now create the policy
+        link.create(
+          self.class.normalize_params(params)
+        )
+      end
     end
   end
 end
