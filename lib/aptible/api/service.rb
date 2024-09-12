@@ -20,6 +20,8 @@ module Aptible
       field :container_count
       field :container_memory_limit_mb
       field :instance_class
+      field :force_zero_downtime
+      field :naive_health_check
       field :created_at, type: Time
       field :updated_at, type: Time
 
