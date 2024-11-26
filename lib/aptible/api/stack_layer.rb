@@ -5,6 +5,7 @@ module Aptible
       belongs_to :lead_instance
       has_many :instance_layer_memberships
       has_many :aws_instances
+      embeds_one :ami_release
 
       field :id
       field :name
