@@ -72,8 +72,8 @@ module Aptible
         certificate = connection.ssh_certificate_body
 
         # Backups can be restored across stacks, and the operation executes
-        # on the destiantion stack. I'll assume all future cross-stack operations
-        # will behave the same way, and fingers crossed they'll "just work"
+        # on the destiantion stack. Assuming all future cross-stack operations
+        # will behave the same way, fingers crossed they'll "just work"
         stack = destination_account.try(&:stack) || account.stack
         host ||= stack.ssh_portal_host
         port ||= stack.ssh_portal_port
