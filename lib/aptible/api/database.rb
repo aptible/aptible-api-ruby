@@ -4,6 +4,7 @@ module Aptible
       belongs_to :account
       belongs_to :database_image
       belongs_to :current_configuration
+      belongs_to :restored_from_backup
       embeds_one :last_operation
       embeds_one :disk
       has_one :service
