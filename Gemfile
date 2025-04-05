@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'pry', 
-    git: 'https://github.com/fancyremarker/pry.git', 
-    branch: 'aptible'
+gem 'aptible-resource', 
+    git: 'https://github.com/aptible/aptible-resource.git', 
+    branch: 'debug'
 
 gem 'activesupport', '~> 4.0'
 
