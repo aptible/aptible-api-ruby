@@ -37,6 +37,8 @@ module Aptible
       field :updated_at, type: Time
       field :instance_profile
       field :mount_point
+      field :recovery_target_type
+      field :recovery_target
 
       def user
         auth = Aptible::Auth::User.new(token: token, headers: headers)
