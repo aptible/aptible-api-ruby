@@ -35,6 +35,7 @@ module Aptible
       field :stack_settings
       field :created_at, type: Time
       field :updated_at, type: Time
+      field :claimed_for_push_at, type: Time
       field :instance_profile
       field :mount_point
       field :recovery_target_type
