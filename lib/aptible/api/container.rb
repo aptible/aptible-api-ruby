@@ -5,6 +5,7 @@ module Aptible
       belongs_to :vhost
       belongs_to :log_drain
       belongs_to :metric_drain
+      has_many :release_alterations
 
       field :id
       field :host
