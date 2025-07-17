@@ -9,7 +9,6 @@ module Aptible
 
       field :id
       field :name
-      field :opsworks_layer_id
       field :lead_instance_hostname
       field :dns, type: Aptible::Resource::Boolean
       field :internal_only_dns, type: Aptible::Resource::Boolean
