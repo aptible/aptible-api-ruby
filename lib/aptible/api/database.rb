@@ -28,6 +28,9 @@ module Aptible
       field :port_mapping
       field :logical_replica
       field :enable_backups
+      field :enable_pitr
+      field :pitr_bucket
+      field :oldest_pitr_time, type: Time
 
       def failed?
         # TODO: Add failed status at API level
