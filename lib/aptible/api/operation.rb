@@ -41,13 +41,17 @@ module Aptible
       field :recovery_target_type
       field :recovery_target
 
-      # configure_backup_policy attributes
+      # account:configure_backup_policy attributes
       field :daily
       field :monthly
       field :yearly
       field :pitr_days
       field :make_copy, type: Aptible::Resource::Boolean
       field :keep_final, type: Aptible::Resource::Boolean
+
+      # database:configure_backup_policy attributes
+      field :enable_backups
+      field :enable_pitr
 
       def user
         auth = Aptible::Auth::User.new(token: token, headers: headers)
