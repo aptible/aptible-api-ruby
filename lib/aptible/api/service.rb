@@ -24,6 +24,13 @@ module Aptible
       field :naive_health_check
       field :created_at, type: Time
       field :updated_at, type: Time
+      field :release_operation_in_progress?, type: :boolean
+
+      def reload_with_operation_status
+        self.class.find(
+          id, include_operation_status: true, token: token, headers: headers
+        )
+      end
 
       def create_service_sizing_policy!(params)
         params = { token: token }.merge(params)
