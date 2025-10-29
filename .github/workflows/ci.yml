@@ -8,6 +8,8 @@ on:
     branches:
       - master
 
+permissions: {}
+
 jobs:
   test:
     name: Run tests on Ruby ${{ matrix.RUBY_VERSION }}
@@ -19,9 +21,11 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Install Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@d5126b9b3579e429dd52e51e68624dda2e05be25  # v1.267.0
         with:
           ruby-version: ${{ matrix.RUBY_VERSION }}
           bundler: 1.17.3
