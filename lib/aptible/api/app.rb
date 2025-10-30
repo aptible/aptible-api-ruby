@@ -19,7 +19,6 @@ module Aptible
       has_many :prerelease_commands
       has_many :service_definitions
       has_many :code_scan_results
-      has_many :settings
       embeds_many :services
 
       field :id
