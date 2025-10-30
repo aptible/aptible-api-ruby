@@ -3,7 +3,9 @@ module Aptible
     class Vhost < Resource
       belongs_to :service
       belongs_to :certificate
+      belongs_to :current_setting
       has_many :operations
+      has_many :settings
 
       field :id
       field :virtual_domain

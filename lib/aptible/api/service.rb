@@ -5,10 +5,12 @@ module Aptible
       belongs_to :app
       belongs_to :database
       belongs_to :current_release
+      belongs_to :current_setting
       has_many :vhosts
       has_many :operations
       has_many :releases
       has_many :disk_attachments
+      has_many :settings
       has_one :service_sizing_policy
 
       field :id
