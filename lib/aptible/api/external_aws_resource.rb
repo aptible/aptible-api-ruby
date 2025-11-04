@@ -2,7 +2,6 @@ module Aptible
   module Api
     class ExternalAwsResource < Resource
       belongs_to :external_aws_account
-      has_many :app_database_connection
 
       field :id
       field :resource_type
