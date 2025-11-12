@@ -24,6 +24,7 @@ module Aptible
       field :instance_class
       field :force_zero_downtime
       field :naive_health_check
+      field :restart_free_scaling
       field :created_at, type: Time
       field :updated_at, type: Time
       field :release_operation_in_progress?, type: :boolean
