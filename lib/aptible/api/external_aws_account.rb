@@ -2,6 +2,7 @@ module Aptible
   module Api
     class ExternalAwsAccount < Resource
       has_many :external_aws_resources
+      has_many :app_database_connection
 
       field :id
       field :organization_id
