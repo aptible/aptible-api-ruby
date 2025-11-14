@@ -20,7 +20,7 @@ module Aptible
       has_many :service_definitions
       has_many :code_scan_results
       embeds_many :services
-      has_many :app_database_connection
+      has_many :app_database_connections
 
       field :id
       field :handle

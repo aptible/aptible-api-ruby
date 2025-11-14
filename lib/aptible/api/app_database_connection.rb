@@ -4,7 +4,7 @@ module Aptible
       belongs_to :app
       belongs_to :database
       belongs_to :external_aws_resource
-      belongs_to :database_credential
+      belongs_to :external_aws_account
 
       field :id
       field :database_name
