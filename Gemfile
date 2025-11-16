@@ -5,7 +5,7 @@ gem 'pry',
     branch: 'aptible'
 
 # ActiveSupport version depends on Ruby version for compatibility
-if RUBY_VERSION < '2.2'
+if RUBY_VERSION < '3.0'
   gem 'activesupport', '~> 4.0'
 else
   gem 'activesupport', '>= 5.2'
