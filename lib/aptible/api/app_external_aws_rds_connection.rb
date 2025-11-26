@@ -1,8 +1,7 @@
 module Aptible
   module Api
-    class AppDatabaseConnection < Resource
+    class AppExternalAwsRdsConnection < Resource
       belongs_to :app
-      belongs_to :database
       belongs_to :external_aws_resource
       belongs_to :external_aws_account
 

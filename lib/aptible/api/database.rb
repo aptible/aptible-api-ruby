@@ -17,7 +17,6 @@ module Aptible
       has_many :settings
       has_many :aws_instances
       embeds_many :database_credentials
-      has_many :app_database_connection
 
       field :id
       field :handle
