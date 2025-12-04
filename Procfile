@@ -1,1 +1,1 @@
-console: bundle exec pry -r aptible/api -r aptible/auth
+console: bundle exec irb -r aptible/api -r aptible/auth

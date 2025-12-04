@@ -6,6 +6,7 @@ if RUBY_VERSION < '3.0'
 else
   gem 'activesupport', '>= 5.2'
 end
+gem "irb", "~> 1.1"
 
 # Specify your gem's dependencies in aptible-api.gemspec
 gemspec
