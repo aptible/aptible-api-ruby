@@ -4,6 +4,7 @@ module Aptible
       belongs_to :account
       belongs_to :database_image
       belongs_to :current_configuration
+      belongs_to :current_setting
       belongs_to :restored_from_backup
       embeds_one :last_operation
       embeds_one :disk
@@ -13,6 +14,7 @@ module Aptible
       has_many :backups
       has_many :dependents
       has_many :configurations
+      has_many :settings
       has_many :aws_instances
       embeds_many :database_credentials
 

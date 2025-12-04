@@ -23,6 +23,8 @@ module Aptible
       field :certificate
       field :private_key
       field :env
+      field :settings
+      field :sensitive_settings
       field :container_size
       field :container_count
       field :disk_size
