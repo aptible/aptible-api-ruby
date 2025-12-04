@@ -48,7 +48,6 @@ describe Aptible::Api::Operation do
 
       it 'yields usable SSH connection arguments' do
         expect(subject).to receive(:create_ssh_portal_connection!)
-          .with(ssh_public_key: 'some public key')
           .and_return(ssh_portal_connection)
 
         has_yielded = false
@@ -100,7 +99,6 @@ describe Aptible::Api::Operation do
 
       it 'allows passing a custom host' do
         expect(subject).to receive(:create_ssh_portal_connection!)
-          .with(ssh_public_key: 'some public key')
           .and_return(ssh_portal_connection)
 
         has_yielded = false

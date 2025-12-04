@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'pry', 
-    git: 'https://github.com/fancyremarker/pry.git', 
-    branch: 'aptible'
-
-gem 'activesupport', '~> 4.0'
+# ActiveSupport version depends on Ruby version for compatibility
+if RUBY_VERSION < '3.0'
+  gem 'activesupport', '~> 4.0'
+else
+  gem 'activesupport', '>= 5.2'
+end
+gem "irb", "~> 1.1"
 
 # Specify your gem's dependencies in aptible-api.gemspec
 gemspec
