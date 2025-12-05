@@ -5,6 +5,7 @@ module Aptible
     class Account < Resource
       belongs_to :stack
 
+      has_many :ai_tokens
       has_many :apps
       has_many :backups
       has_many :certificates
