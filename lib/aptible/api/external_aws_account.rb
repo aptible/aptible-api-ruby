@@ -26,6 +26,23 @@ module Aptible
         auth = Aptible::Auth::Organization.new(token: token, headers: headers)
         @organization = auth.find_by_url(organization_url)
       end
+
+      def check!
+        response = HyperResource::Link.new(
+          self,
+          'href' => "#{href}/check"
+        ).get
+        ExternalAwsAccountCheckResponse.new(
+          state: response.attributes['state'],
+          checks: (response.attributes['checks'] || []).map do |c|
+            ExternalAwsAccountCheck.new(
+              check_name: c['check_name'],
+              state: c['state'],
+              details: c['details']
+            )
+          end
+        )
+      end
     end
   end
 end
