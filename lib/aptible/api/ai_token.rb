@@ -10,6 +10,7 @@ module Aptible
       field :expires_at
       field :last_used_at
       field :revoked_at
+      field :gateway_url
 
       # Note: The 'token' field from API response is accessible via
       # attributes['token'] to avoid conflict with aptible-resource's
