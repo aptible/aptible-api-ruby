@@ -1,0 +1,5 @@
+inherit_gem:
+  aptible-tasks: .rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 2.2
