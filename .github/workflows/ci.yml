@@ -18,23 +18,16 @@ jobs:
       fail-fast: false
       matrix:
         RUBY_VERSION: [2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 3.1, 3.2, 3.3, 3.4]
+    env:
+      RUBY_VERSION: ${{ matrix.RUBY_VERSION }}
     steps:
       - name: Check out code
         uses: actions/checkout@v4
         with:
           persist-credentials: false
 
-      - name: Install Ruby
-        uses: ruby/setup-ruby@d5126b9b3579e429dd52e51e68624dda2e05be25  # v1.267.0
-        with:
-          ruby-version: ${{ matrix.RUBY_VERSION }}
-          bundler: 1.17.3
-
-      - name: Bundle install
-        run: bundle install
-
       - name: Rubocop
-        run: bundle exec rake rubocop
+        run: make lint
 
       - name: Rspec
-        run: bundle exec rspec
+        run: make test
