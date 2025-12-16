@@ -37,4 +37,3 @@ module Aptible
     end
   end
 end
-
