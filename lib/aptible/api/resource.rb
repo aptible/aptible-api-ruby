@@ -15,6 +15,7 @@ module Aptible
 end
 
 require 'aptible/api/account'
+require 'aptible/api/ai_token'
 require 'aptible/api/ami'
 require 'aptible/api/ami_release'
 require 'aptible/api/app'
@@ -59,3 +60,5 @@ require 'aptible/api/maintenance'
 require 'aptible/api/vpn_tunnel'
 require 'aptible/api/external_aws_account'
 require 'aptible/api/external_aws_resource'
+require 'aptible/api/external_aws_database_credential'
+require 'aptible/api/app_external_aws_rds_connection'
