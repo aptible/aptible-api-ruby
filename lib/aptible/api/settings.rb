@@ -4,8 +4,8 @@ module Aptible
       belongs_to :resource
 
       field :id
-      field :keys
-      field :sensitive_keys
+      field :settings
+      field :sensitive_settings
       field :created_at, type: Time
     end
   end
