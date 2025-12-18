@@ -2,10 +2,16 @@
 export COMPOSE_IGNORE_ORPHANS ?= true
 export RUBY_VERSION ?= 2.3.1
 RUBY_VERSION_MAJOR = $(word 1,$(subst ., ,$(RUBY_VERSION)))
+RUBY_VERSION_MINOR = $(word 2,$(subst ., ,$(RUBY_VERSION)))
 export BUNDLER_VERSION ?=
 ifeq ($(BUNDLER_VERSION),)
 ifeq ($(RUBY_VERSION_MAJOR),2)
+# Use old bundler for Ruby 2.3-2.6; Ruby 2.7 needs bundler 2.x to avoid resolver bugs
+ifeq ($(RUBY_VERSION_MINOR),7)
+export BUNDLER_VERSION = 2.4.22
+else
 export BUNDLER_VERSION = 1.17.3
+endif
 endif
 endif
 PROJECT_NAME = $(shell ls *.gemspec | sed 's/\.gemspec//')
