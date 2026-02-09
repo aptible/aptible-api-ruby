@@ -33,6 +33,7 @@ module Aptible
       field :enable_pitr
       field :pitr_bucket
       field :oldest_pitr_time, type: Time
+      field :pitr_status
 
       def failed?
         # TODO: Add failed status at API level
