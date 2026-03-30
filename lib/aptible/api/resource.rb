@@ -15,6 +15,7 @@ module Aptible
 end
 
 require 'aptible/api/account'
+require 'aptible/api/ai_agent'
 require 'aptible/api/ai_token'
 require 'aptible/api/ami'
 require 'aptible/api/ami_release'
