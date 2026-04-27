@@ -8,7 +8,6 @@ module Aptible
       field :id
       field :type
       field :name
-      field :version
       field :region
       field :default, type: Aptible::Resource::Boolean
       field :ssh_host_dsa_public_key
