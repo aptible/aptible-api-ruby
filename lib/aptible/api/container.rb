@@ -3,6 +3,7 @@ module Aptible
     class Container < Resource
       belongs_to :release
       belongs_to :vhost
+      has_many :vhosts
       belongs_to :log_drain
       belongs_to :metric_drain
       has_many :release_alterations
