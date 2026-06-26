@@ -4,6 +4,7 @@ module Aptible
       belongs_to :release
       belongs_to :vhost
       has_many :vhosts
+      has_many :container_vhost_memberships
       belongs_to :log_drain
       belongs_to :metric_drain
       has_many :release_alterations
