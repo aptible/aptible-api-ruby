@@ -22,6 +22,7 @@ module Aptible
       field :key_exchange
       field :auto
       field :dpd_action
+      field :dpd_timeout
       field :status
       field :backend
       field :state
