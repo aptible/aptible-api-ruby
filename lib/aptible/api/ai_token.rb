@@ -4,29 +4,15 @@ module Aptible
       belongs_to :account
 
       field :id
-      field :name
-      field :created_at
-      field :updated_at
-      field :expires_at
-      field :last_used_at
-      field :revoked_at
+      field :key_alias
+      field :note
+      field :status
       field :gateway_url
-      # User (on whose behalf) details
-      field :created_by_user_id
-      field :created_by_user_name
-      field :created_by_user_email
-      # Actor (who performed) details
-      field :created_by_actor_id
-      field :created_by_actor_name
-      field :created_by_actor_email
-      # Revoked by user details
-      field :revoked_by_user_id
-      field :revoked_by_user_name
-      field :revoked_by_user_email
-      # Revoked by actor details
-      field :revoked_by_actor_id
-      field :revoked_by_actor_name
-      field :revoked_by_actor_email
+      field :created_at, type: Time
+      field :created_by
+      field :updated_at, type: Time
+      field :revoked_at, type: Time
+      field :revoked_by
 
       # Note: The 'token' field from API response is accessible via
       # attributes['token'] to avoid conflict with aptible-resource's
