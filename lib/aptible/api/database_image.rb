@@ -12,6 +12,7 @@ module Aptible
       field :created_at, type: Time
       field :updated_at, type: Time
       field :pitr_supported, type: Aptible::Resource::Boolean
+      field :initialize_backup_supported, type: Aptible::Resource::Boolean
     end
   end
 end
