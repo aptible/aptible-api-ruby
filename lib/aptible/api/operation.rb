@@ -7,6 +7,7 @@ module Aptible
       belongs_to :account
       belongs_to :destination_account
       belongs_to :service
+      belongs_to :deploy_image
 
       has_many :ssh_portal_connections
       has_many :ephemeral_sessions
@@ -42,6 +43,7 @@ module Aptible
       field :mount_point
       field :recovery_target_type
       field :recovery_target
+      field :deploy_image_id
 
       # account:configure_backup_policy attributes
       field :daily
