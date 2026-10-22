@@ -3,10 +3,10 @@ services:
     build:
       context: .
       args:
-        RUBY_VERSION: ${RUBY_VERSION:-2.3.1}
+        RUBY_VERSION: ${RUBY_VERSION:-3.4}
         BUNDLER_VERSION: ${BUNDLER_VERSION:-}
     volumes:
       - type: bind
         source: .
         target: /app
-      - ./docker/ruby-${RUBY_VERSION}/Gemfile.lock:/app/Gemfile.lock
+      - ./docker/Gemfile.lock:/app/Gemfile.lock
