@@ -57,6 +57,10 @@ module Aptible
       field :enable_backups
       field :enable_pitr
 
+      # vhost:provision WAF request attributes
+      field :waf_status_request
+      field :waf_enabled_rulesets
+
       def user
         auth = Aptible::Auth::User.new(token: token, headers: headers)
         auth.find_by_url(links['user'].href)

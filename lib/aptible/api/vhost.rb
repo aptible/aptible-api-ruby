@@ -7,6 +7,11 @@ module Aptible
       has_many :operations
       has_many :settings
 
+      # TODO - is there a better way to allow linking engine to 
+      #        enable creation AND retrieval for has_one?
+      has_one :waf_config
+      has_many :waf_configs
+
       field :id
       field :virtual_domain
       field :type
