@@ -6,6 +6,7 @@ module Aptible
       belongs_to :current_setting
       has_many :operations
       has_many :settings
+      has_one :waf_config
 
       field :id
       field :virtual_domain
@@ -39,6 +40,20 @@ module Aptible
 
       def provisioned?
         status == 'provisioned'
+      end
+
+      # has_many needs a collection link; none exists until a config does.
+      def create_waf_config!(params)
+        params = { token: token }.merge(params)
+
+        link = HyperResource::Link.new(
+          self,
+          'href' => "#{href}/waf_configs"
+        )
+
+        link.create(
+          self.class.normalize_params(params)
+        )
       end
     end
   end
